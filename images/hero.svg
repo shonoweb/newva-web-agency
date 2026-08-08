@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1000" role="img" aria-labelledby="heroTitle">
+  <title id="heroTitle">カフェのテーブルに置かれたノートパソコンのイメージ</title>
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#efe6d8"/>
+      <stop offset="55%" stop-color="#ddcab0"/>
+      <stop offset="100%" stop-color="#20242b"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b6ef2"/>
+      <stop offset="100%" stop-color="#1c2b52"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="18%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tableTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ec"/>
+      <stop offset="100%" stop-color="#e4d7c2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1000" fill="url(#heroBg)"/>
+  <rect width="900" height="1000" fill="url(#glow)"/>
+
+  <!-- window light -->
+  <g opacity="0.5" stroke="#ffffff" stroke-width="2">
+    <line x1="60" y1="0" x2="60" y2="360"/>
+    <line x1="220" y1="0" x2="220" y2="360"/>
+    <line x1="0" y1="180" x2="280" y2="180"/>
+  </g>
+
+  <!-- table shadow -->
+  <ellipse cx="450" cy="760" rx="330" ry="46" fill="#000000" opacity="0.14"/>
+
+  <!-- round table top -->
+  <ellipse cx="450" cy="640" rx="360" ry="92" fill="url(#tableTop)"/>
+  <ellipse cx="450" cy="628" rx="360" ry="92" fill="#fffdf8"/>
+
+  <!-- table legs -->
+  <path d="M300 650 L260 900" stroke="#2b2b2f" stroke-width="10" stroke-linecap="round"/>
+  <path d="M600 650 L640 900" stroke="#2b2b2f" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- cup -->
+  <g transform="translate(618,566)">
+    <ellipse cx="0" cy="34" rx="46" ry="12" fill="#000" opacity="0.08"/>
+    <path d="M-38 0 h76 l-8 40 a34 34 0 0 1 -60 0 Z" fill="#f7f1e6" stroke="#caa27a" stroke-width="3"/>
+    <ellipse cx="0" cy="0" rx="38" ry="9" fill="#8a5a35"/>
+    <path d="M40 6 q26 4 20 26 q-4 16 -24 14" fill="none" stroke="#caa27a" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- laptop base -->
+  <path d="M255 560 L645 560 L690 636 L212 636 Z" fill="#e7ded0" stroke="#b7a488" stroke-width="2"/>
+  <!-- laptop screen -->
+  <g transform="translate(300,352)">
+    <rect x="0" y="0" width="300" height="204" rx="10" fill="#12151c"/>
+    <rect x="10" y="10" width="280" height="184" rx="4" fill="url(#screenGrad)"/>
+    <rect x="26" y="30" width="150" height="14" rx="3" fill="#ffffff" opacity="0.92"/>
+    <rect x="26" y="54" width="110" height="9" rx="2" fill="#ffffff" opacity="0.55"/>
+    <rect x="26" y="120" width="70" height="52" rx="6" fill="#ff8a3d" opacity="0.9"/>
+    <rect x="106" y="120" width="70" height="52" rx="6" fill="#3dd6c6" opacity="0.9"/>
+    <rect x="186" y="120" width="88" height="52" rx="6" fill="#ffffff" opacity="0.18"/>
+  </g>
+
+  <!-- chair suggestion -->
+  <g opacity="0.5" stroke="#20242b" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M120 720 L120 940"/>
+    <path d="M120 720 L60 900"/>
+    <path d="M120 780 L60 780"/>
+  </g>
+</svg>
