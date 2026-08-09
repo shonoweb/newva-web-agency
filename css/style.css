@@ -1357,7 +1357,6 @@ section {
   }
 
   .hero-media {
-    order: -1;
     max-width: 420px;
     margin-inline: auto;
   }
