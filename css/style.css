@@ -413,39 +413,6 @@ section {
   box-shadow: var(--shadow-lg);
 }
 
-.scroll-cue {
-  display: flex;
-  justify-content: center;
-  margin-top: clamp(40px, 6vw, 72px);
-}
-
-.scroll-cue span {
-  width: 26px;
-  height: 42px;
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-full);
-  position: relative;
-}
-
-.scroll-cue span::before {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  background: var(--color-text-faint);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  animation: scrollDot 1.8s ease-in-out infinite;
-}
-
-@keyframes scrollDot {
-  0% { transform: translate(-50%, 0); opacity: 1; }
-  70% { transform: translate(-50%, 14px); opacity: 0; }
-  100% { transform: translate(-50%, 14px); opacity: 0; }
-}
-
 /* ---------- Problem ---------- */
 .problem {
   padding-block: clamp(64px, 8vw, 100px);
