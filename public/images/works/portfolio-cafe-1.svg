@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t4">
+  <title id="t4">カフェのWebサイト制作例</title>
+  <defs>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e6dccb"/>
+      <stop offset="100%" stop-color="#6b4a30"/>
+    </linearGradient>
+    <radialGradient id="r4" cx="80%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g4)"/>
+  <rect width="800" height="600" fill="url(#r4)"/>
+  <g transform="translate(400,300)" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <path d="M-70,-20 h120 l-10,70 a50,50 0 0 1 -100,0 Z"/>
+    <path d="M50,-10 q40,4 30,42 q-6,26 -38,22"/>
+    <path d="M-45,-45 q10,-16 0,-30" opacity="0.8"/>
+    <path d="M-15,-45 q10,-16 0,-30" opacity="0.8"/>
+  </g>
+</svg>

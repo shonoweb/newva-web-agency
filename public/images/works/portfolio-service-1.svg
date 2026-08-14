@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t10">
+  <title id="t10">サービス業のWebサイトデザイン例</title>
+  <defs>
+    <linearGradient id="g10" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cfeae5"/>
+      <stop offset="100%" stop-color="#3f7c74"/>
+    </linearGradient>
+    <radialGradient id="r10" cx="80%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g10)"/>
+  <rect width="800" height="600" fill="url(#r10)"/>
+  <g transform="translate(400,300)" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <path d="M0,-72 L60,-46 V6 C60,44 34,66 0,80 C-34,66 -60,44 -60,6 V-46 Z"/>
+    <path d="M-24,4 L-6,22 L28,-16"/>
+  </g>
+</svg>

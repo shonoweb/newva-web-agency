@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t8">
+  <title id="t8">雑貨店のWebサイトデザイン例</title>
+  <defs>
+    <linearGradient id="g8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2e3bd"/>
+      <stop offset="100%" stop-color="#b9884f"/>
+    </linearGradient>
+    <radialGradient id="r8" cx="80%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g8)"/>
+  <rect width="800" height="600" fill="url(#r8)"/>
+  <g transform="translate(400,300)" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <path d="M-52,-20 h104 l10,100 h-124 Z"/>
+    <path d="M-26,-20 a26,30 0 0 1 52,0"/>
+  </g>
+</svg>

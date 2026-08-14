@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t6">
+  <title id="t6">ネイルサロンのWebサイト制作例</title>
+  <defs>
+    <linearGradient id="g6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3ddd6"/>
+      <stop offset="100%" stop-color="#c17a63"/>
+    </linearGradient>
+    <radialGradient id="r6" cx="80%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g6)"/>
+  <rect width="800" height="600" fill="url(#r6)"/>
+  <g transform="translate(400,300)" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <path d="M0,-70 L16,-22 L66,-22 L26,8 L42,58 L0,26 L-42,58 L-26,8 L-66,-22 L-16,-22 Z" stroke-linejoin="round"/>
+  </g>
+</svg>
