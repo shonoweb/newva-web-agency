@@ -32,7 +32,7 @@ const problems = [
       <>
         自分で作るには、
         <br />
-        時間も管理の<wbr />手間もかかる
+        時間も<wbr />手間もかかる
       </>
     ),
     icon: Clock3,
@@ -52,7 +52,10 @@ const problems = [
 
 export function Problem() {
   return (
-    <section aria-label="よくあるお悩み" className="py-16 sm:py-[clamp(64px,8vw,100px)]">
+    <section
+      aria-label="よくあるお悩み"
+      className="py-16 pb-10 sm:py-[clamp(64px,8vw,100px)] sm:pb-[clamp(40px,6vw,76px)]"
+    >
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading eyebrow="PROBLEM" title="こんなお悩みありませんか？" />
 
@@ -63,18 +66,22 @@ export function Problem() {
                 <span className="mb-4 inline-flex h-12 w-12 items-center justify-center text-ink-soft" aria-hidden="true">
                   <problem.icon className="h-7 w-7" strokeWidth={1.75} />
                 </span>
-                <p className="break-keep text-[0.92rem] font-semibold leading-[1.7] text-ink">{problem.text}</p>
+                <p className="text-pretty break-keep text-[0.92rem] font-semibold leading-[1.7] tracking-[-0.01em] text-ink">
+                  {problem.text}
+                </p>
               </Card>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={0.3}>
-          <p className="mt-11 text-center text-[1.15rem] font-semibold text-ink">
-            そのお悩み、<strong className="font-extrabold text-accent">NEWVA WEB AGENCY</strong>が
-            <br />
-            Webの力で解決をサポートします。
-          </p>
+          <div className="mx-auto mt-11 max-w-[560px] text-center">
+            <p className="text-[1.25rem] font-extrabold text-ink">その課題、Webで変えられます。</p>
+            <p className="mt-2 text-[0.92rem] text-ink-soft">
+              <strong className="font-semibold text-accent">NEWVA WEB AGENCY</strong>
+              が、集客につながる仕組みをつくります。
+            </p>
+          </div>
         </Reveal>
       </div>
     </section>

@@ -8,7 +8,7 @@ const services = [
     title: "Webサイト制作",
     description: (
       <>
-        お店の世界観を表現する
+        お店の魅力や世界観が伝わる
         <br />
         オリジナルサイトを制作します。
       </>
@@ -22,12 +22,12 @@ const services = [
   },
   {
     id: "growth",
-    title: "集客サポート",
+    title: "集客・導線設計",
     description: (
       <>
-        新規のお客様へ届く
+        Google検索やSNSから
         <br />
-        導線設計をサポートします。
+        来店につながる導線を整えます。
       </>
     ),
     path: (
@@ -39,12 +39,12 @@ const services = [
   },
   {
     id: "brand",
-    title: "ブランド設計",
+    title: "運用・更新サポート",
     description: (
       <>
-        お店の魅力を伝える
+        公開後の更新や修正まで
         <br />
-        デザインを提案します。
+        継続してサポートします。
       </>
     ),
     path: (
@@ -64,19 +64,25 @@ export function Service() {
         <SectionHeading
           eyebrow="SERVICE"
           title="私たちのサービス"
-          description="お店の魅力を最大限に引き出す Web制作サービスを提供します。"
+          description={
+            <>
+              制作から集客、公開後の運用まで。
+              <br />
+              お店のWeb活用をトータルでサポートします。
+            </>
+          }
         />
 
-        <div className="grid gap-7 sm:grid-cols-2 tablet:grid-cols-3">
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
           {services.map((service, index) => (
             <Reveal key={service.id} delay={index * 0.1}>
-              <Card variant="elevated" className="flex h-full flex-col items-center px-8 py-11 text-center">
-                <span className="mb-5 inline-flex h-14 w-14 items-center justify-center text-ink" aria-hidden="true">
+              <Card variant="elevated" className="flex h-full flex-col items-center px-8 py-9 text-center">
+                <span className="mb-4 inline-flex h-14 w-14 items-center justify-center text-ink" aria-hidden="true">
                   <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-[34px] w-[34px]">
                     {service.path}
                   </svg>
                 </span>
-                <h3 className="mb-3 text-[1.15rem] font-bold text-ink">{service.title}</h3>
+                <h3 className="mb-2.5 text-[1.15rem] font-bold text-ink">{service.title}</h3>
                 <p className="text-[0.95rem] leading-[1.75] text-ink-soft">{service.description}</p>
               </Card>
             </Reveal>

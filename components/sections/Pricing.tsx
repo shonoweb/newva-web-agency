@@ -10,16 +10,19 @@ import { usePlanContext } from "@/components/PlanContext";
 export function Pricing() {
   const { setSelectedPlan } = usePlanContext();
   return (
-    <section id="pricing" className="scroll-mt-[var(--header-h)] bg-surface-alt py-16 sm:py-[clamp(72px,10vw,120px)]">
+    <section
+      id="pricing"
+      className="scroll-mt-[var(--header-h)] bg-surface-alt pb-8 pt-10 sm:pb-[clamp(32px,4vw,56px)] sm:pt-[clamp(40px,5vw,64px)]"
+    >
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
           eyebrow="PRICING"
           title="料金プラン"
           description={
             <>
-              個人店様でも導入しやすい、明快な料金設定です。
+              お店に合わせて選べる、シンプルな料金プラン。
               <br />
-              ページ数やご要望に応じて内容は調整できますので、まずはお気軽にご相談ください。
+              ご要望やサイトの規模に合わせて、最適なプランをご提案します。
             </>
           }
         />
