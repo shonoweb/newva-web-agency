@@ -14,16 +14,36 @@
 }
 
 @theme inline {
+  /* ---------- NEWVA WEB AGENCY 基本カラーパレット ----------
+     用途はREADME代わりにここへ集約する。新しいセクションを追加する際は
+     このトークンだけを参照し、個別のHEX値をコンポーネント側へ書かないこと。 */
+
+  /* Main Background: メイン背景・ブランドメッセージ・訴求セクション・MESSAGE・CTAなど */
   --color-bg: #ffffff;
-  --color-surface: #f5f5f7;
-  --color-surface-alt: #fafafa;
-  --color-ink: #1d1d1f;
-  --color-ink-soft: #6e6e73;
-  --color-ink-faint: #a1a1a6;
-  --color-line: #e7e7ea;
-  --color-dark: #16161a;
+  /* Secondary Background: FAQ・料金・情報整理系セクションなど、白と差をつけたい場所 */
+  --color-surface-alt: #f7f7f8;
+  /* Card Background: Problem/MESSAGEカード等の情報カード。
+     親セクションがSecondary Background(#f7f7f8)の場合はコントラスト確保のため
+     カード側をbg-bg(白)へ切り替えること(既存のPRICING/FAQカードは実践済み)。 */
+  --color-surface: #f4f4f5;
+
+  /* Primary Text: H1/H2/H3・カードタイトル・重要な文章・主要ボタン */
+  --color-ink: #18181b;
+  /* Secondary Text: 本文・説明文・サブコピー・カード説明文 */
+  --color-ink-soft: #71717a;
+  /* Muted Text: 補助情報・小さなラベル・注釈など、多用しない控えめな用途のみ */
+  --color-ink-faint: #a1a1aa;
+
+  /* Border: カード境界線・区切り線・フォーム。輪郭がわずかに分かる程度に留める */
+  --color-line: #e4e4e7;
+
+  /* 主要ボタン(bg-dark)はPrimary Textと同じ黒を使用。hoverのみ純黒へ */
+  --color-dark: #18181b;
   --color-dark-hover: #000000;
-  --color-accent: #8b7cf6;
+
+  /* Brand Purple: セクションの英字ラベル・STEP番号・小さなブランドアクセント・重要ポイント */
+  --color-accent: #8878ff;
+  /* Heroの装飾ブロブ用の補助色。今回のパレット定義の対象外のため変更しない */
   --color-accent-2: #6ea8fe;
 
   /* 旧HTML版CSSのブレークポイントに合わせたカスタムブレークポイント */

@@ -51,6 +51,6 @@ export async function POST(request: Request) {
   // TODO: CONTACT_FORM_ENDPOINT 設定後、実際のメール送信処理をここに実装する。
   return NextResponse.json<ContactSubmitResult>({
     ok: true,
-    message: "お問い合わせありがとうございます。担当より折り返しご連絡いたします。",
+    message: "お問い合わせありがとうございます。内容を確認のうえ、ご連絡いたします。",
   });
 }

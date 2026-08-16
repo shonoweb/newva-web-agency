@@ -4,46 +4,73 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const missions = [
   {
-    id: "hearing",
-    title: "丁寧なヒアリング",
-    description: "お店の想いやこだわりを、じっくりお伺いすることから始めます。",
+    id: "know",
+    num: "01",
+    title: "知る",
+    description: (
+      <>
+        お店の想いやこだわりを、
+        <br />
+        丁寧にヒアリングします。
+      </>
+    ),
   },
   {
-    id: "custom",
-    title: "オーダーメイドの設計",
-    description: "テンプレートに頼らず、お店ごとの世界観に合わせて一から制作します。",
+    id: "shape",
+    num: "02",
+    title: "形にする",
+    description: (
+      <>
+        そのお店らしさが伝わるデザインへ
+        <br />
+        丁寧に落とし込みます。
+      </>
+    ),
   },
   {
-    id: "support",
-    title: "公開後も伴走",
-    description: "作って終わりではなく、運用のご相談にも継続して対応します。",
+    id: "deliver",
+    num: "03",
+    title: "届ける",
+    description: (
+      <>
+        Webを通して、新しいお客様との
+        <br />
+        接点をつくります。
+      </>
+    ),
   },
 ];
 
 export function Mission() {
   return (
-    <section id="mission" className="scroll-mt-[var(--header-h)] py-16 sm:py-[clamp(72px,10vw,120px)]">
+    <section
+      id="mission"
+      className="scroll-mt-[var(--header-h)] pb-8 pt-10 sm:pb-[clamp(32px,4vw,56px)] sm:pt-[clamp(40px,5vw,64px)]"
+    >
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
           eyebrow="MESSAGE"
-          title="店舗オーナー様へ"
+          title="店舗の魅力を、まだ知らない人へ。"
           description={
-            <>
-              良い商品やサービスがあるのに、まだ知られていないお店がたくさんあります。
+            <span className="text-pretty break-keep">
+              良いお店には、まだ伝わっていない魅力があります。
               <br />
-              私たちは、お店の魅力や世界観を正しく伝えるWebサイトを制作し、
-              <br className="hidden nav:inline" />
-              新しいお客様との出会いをサポートします。
-            </>
+              私たちは、そのお店らしさを丁寧に汲み取り、
+              <br />
+              Webを通して新しいお客様へ届けます。
+            </span>
           }
           className="max-w-[640px] leading-[2]"
         />
 
-        <div className="grid gap-7 sm:grid-cols-2 tablet:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {missions.map((mission, index) => (
-            <Reveal key={mission.id} delay={index * 0.1}>
+            <Reveal key={mission.id} delay={index * 0.12} y={18}>
               <Card variant="flat" className="h-full px-7 py-9 text-center">
-                <h3 className="mb-3 text-[1.05rem] font-bold text-ink">{mission.title}</h3>
+                <span className="mb-1 block text-[1.25rem] font-extrabold leading-none tracking-[-0.02em] text-accent">
+                  {mission.num}
+                </span>
+                <h3 className="mb-2.5 text-[1.05rem] font-bold text-ink">{mission.title}</h3>
                 <p className="text-[0.92rem] leading-[1.8] text-ink-soft">{mission.description}</p>
               </Card>
             </Reveal>

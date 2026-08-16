@@ -14,25 +14,59 @@ import { ContactBlob } from "./ContactBlob";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
 const inputClass =
-  "w-full min-h-11 rounded-[14px] border border-line bg-white px-4 py-3.5 text-[0.95rem] text-ink transition-[border-color,box-shadow] duration-300 focus:border-ink focus:shadow-[0_0_0_3px_rgba(22,22,26,0.06)] focus:outline-none";
+  "w-full min-h-11 rounded-[14px] border border-line bg-white px-4 py-3.5 text-[0.95rem] text-ink transition-[border-color,box-shadow] duration-300 focus:border-accent focus:shadow-[0_0_0_3px_rgba(136,120,255,0.14)] focus:outline-none";
+
+const GENERIC_ERROR_MESSAGE = "送信できませんでした。時間をおいて再度お試しください。";
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validate(values: { name: string; email: string; message: string }): FormErrors {
+  const errors: FormErrors = {};
+
+  if (!values.name.trim()) {
+    errors.name = "お名前を入力してください。";
+  }
+
+  if (!values.email.trim()) {
+    errors.email = "メールアドレスを入力してください。";
+  } else if (!EMAIL_PATTERN.test(values.email.trim())) {
+    errors.email = "メールアドレスの形式をご確認ください。";
+  }
+
+  if (!values.message.trim()) {
+    errors.message = "お問い合わせ内容を入力してください。";
+  }
+
+  return errors;
+}
 
 export function Contact() {
   const { selectedPlan, setSelectedPlan } = usePlanContext();
   const [status, setStatus] = useState<Status>("idle");
   const [feedback, setFeedback] = useState("");
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  function clearFieldError(field: keyof FormErrors) {
+    setErrors((prev) => {
+      if (!prev[field]) return prev;
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-
-    if (!form.checkValidity()) {
-      setStatus("error");
-      setFeedback("未入力の必須項目があります。ご確認ください。");
-      return;
-    }
-
     const formData = new FormData(form);
+
     const payload = {
       name: String(formData.get("name") ?? ""),
       shop: String(formData.get("shop") ?? ""),
@@ -40,6 +74,15 @@ export function Contact() {
       email: String(formData.get("email") ?? ""),
       message: String(formData.get("message") ?? ""),
     };
+
+    const nextErrors = validate(payload);
+    setErrors(nextErrors);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setStatus("error");
+      setFeedback("未入力・入力形式に誤りがある項目があります。ご確認ください。");
+      return;
+    }
 
     setStatus("submitting");
     setFeedback("送信中...");
@@ -57,13 +100,14 @@ export function Contact() {
         setFeedback(result.message);
         form.reset();
         setSelectedPlan("");
+        setErrors({});
       } else {
         setStatus("error");
-        setFeedback(result.message || "送信に失敗しました。しばらくしてから再度お試しください。");
+        setFeedback(result.message || GENERIC_ERROR_MESSAGE);
       }
     } catch {
       setStatus("error");
-      setFeedback("通信エラーが発生しました。お手数ですがメールまたはお電話にてご連絡ください。");
+      setFeedback(GENERIC_ERROR_MESSAGE);
     }
   }
 
@@ -75,16 +119,20 @@ export function Contact() {
           eyebrow="CONTACT"
           title="お問い合わせ"
           description={
-            <>
-              Webサイトの新規制作・リニューアルなど、まずはお気軽にご相談ください。
+            <span className="text-pretty break-keep">
+              まだ依頼するか決まっていなくても大丈夫です。
               <br />
-              初めての方にも、丁寧にご案内いたします。
-            </>
+              お店のお悩みやご希望をお聞きしたうえで、
+              <br className="hidden nav:inline" />
+              最適な制作内容をご提案します。
+              <br />
+              ご相談・お見積りは無料です。
+            </span>
           }
         />
 
-        <div className="grid gap-[clamp(32px,5vw,64px)] rounded-[28px] bg-surface p-[clamp(32px,5vw,56px)] tablet:grid-cols-[0.85fr_1.15fr]">
-          <Reveal>
+        <div className="grid gap-[clamp(32px,5vw,64px)] rounded-[28px] bg-surface-alt p-[clamp(32px,5vw,56px)] tablet:grid-cols-[0.85fr_1.15fr]">
+          <Reveal delay={0.15} duration={0.5}>
             <ul className="flex flex-col gap-6">
               <li className="flex items-start gap-4">
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white text-ink shadow-[var(--shadow-sm)]">
@@ -123,17 +171,27 @@ export function Contact() {
             </ul>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.3} duration={0.5}>
             <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <Field label="お名前" htmlFor="name" required>
-                <input id="name" name="name" type="text" autoComplete="name" required className={inputClass} />
+              <Field label="お名前" htmlFor="name" required error={errors.name}>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  aria-invalid={errors.name ? true : undefined}
+                  aria-describedby={errors.name ? "name-error" : undefined}
+                  onChange={() => clearFieldError("name")}
+                  className={inputClass}
+                />
               </Field>
 
-              <Field label="店舗・会社名" htmlFor="shop">
+              <Field label="店舗・会社名" htmlFor="shop" optional>
                 <input id="shop" name="shop" type="text" autoComplete="organization" className={inputClass} />
               </Field>
 
-              <Field label="ご希望のプラン" htmlFor="plan">
+              <Field label="ご希望のプラン" htmlFor="plan" optional>
                 <div className="relative">
                   <select
                     id="plan"
@@ -154,17 +212,41 @@ export function Contact() {
                 </div>
               </Field>
 
-              <Field label="メールアドレス" htmlFor="email" required>
-                <input id="email" name="email" type="email" autoComplete="email" required className={inputClass} />
+              <Field label="メールアドレス" htmlFor="email" required error={errors.email}>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  aria-invalid={errors.email ? true : undefined}
+                  aria-describedby={errors.email ? "email-error" : undefined}
+                  onChange={() => clearFieldError("email")}
+                  className={inputClass}
+                />
               </Field>
 
-              <Field label="お問い合わせ内容" htmlFor="message" required>
-                <textarea id="message" name="message" rows={5} required className={cn(inputClass, "resize-y")} />
+              <Field label="お問い合わせ内容" htmlFor="message" required error={errors.message}>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  aria-invalid={errors.message ? true : undefined}
+                  aria-describedby={errors.message ? "message-error" : undefined}
+                  onChange={() => clearFieldError("message")}
+                  className={cn(inputClass, "resize-y")}
+                />
               </Field>
 
-              <Button type="submit" size="lg" block disabled={status === "submitting"}>
-                {status === "submitting" ? "送信中..." : "送信する"}
-              </Button>
+              <div>
+                <Button type="submit" size="lg" block disabled={status === "submitting"}>
+                  {status === "submitting" ? "送信中..." : "無料で相談する"}
+                </Button>
+                <p className="mt-2.5 text-center text-[0.78rem] text-ink-faint">
+                  ご相談・お見積りは無料です。無理な営業はいたしません。
+                </p>
+              </div>
 
               <p
                 role="status"
@@ -188,11 +270,15 @@ function Field({
   label,
   htmlFor,
   required,
+  optional,
+  error,
   children,
 }: {
   label: string;
   htmlFor: string;
   required?: boolean;
+  optional?: boolean;
+  error?: string;
   children: ReactNode;
 }) {
   return (
@@ -204,8 +290,14 @@ function Field({
             必須
           </span>
         )}
+        {optional && <span className="ml-2 align-middle text-[0.75rem] font-normal text-ink-faint">任意</span>}
       </label>
       {children}
+      {error && (
+        <p id={`${htmlFor}-error`} className="text-[0.8rem] text-red-600">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

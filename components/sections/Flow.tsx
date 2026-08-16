@@ -29,7 +29,7 @@ export function Flow() {
   return (
     <section
       id="flow"
-      className="scroll-mt-[var(--header-h)] pb-16 pt-10 sm:pb-[clamp(72px,10vw,120px)] sm:pt-[clamp(40px,5vw,64px)]"
+      className="scroll-mt-[var(--header-h)] pb-8 pt-10 sm:pb-[clamp(32px,4vw,56px)] sm:pt-[clamp(40px,5vw,64px)]"
     >
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading

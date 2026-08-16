@@ -10,6 +10,8 @@ interface RevealProps {
   delay?: number;
   /** 初期位置のY方向オフセット(px) */
   y?: number;
+  /** アニメーション時間(秒)。既存呼び出し元の挙動を変えないよう既定値は0.7秒のまま */
+  duration?: number;
 }
 
 /**
@@ -17,7 +19,7 @@ interface RevealProps {
  * 一度表示されたら再アニメーションしない(viewport once)。
  * prefers-reduced-motion では即座に最終状態で表示する。
  */
-export function Reveal({ children, className, delay = 0, y = 24 }: RevealProps) {
+export function Reveal({ children, className, delay = 0, y = 24, duration = 0.7 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
@@ -30,7 +32,7 @@ export function Reveal({ children, className, delay = 0, y = 24 }: RevealProps) 
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </motion.div>
