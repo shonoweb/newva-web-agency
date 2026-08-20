@@ -20,7 +20,7 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="scroll-mt-[var(--header-h)] bg-surface-alt pb-12 pt-10 sm:pb-[clamp(56px,10vw,104px)] sm:pt-[clamp(40px,5vw,64px)]"
+      className="scroll-mt-[var(--header-h)] bg-surface-alt pb-7 pt-10 sm:pb-[clamp(28px,8vw,76px)] sm:pt-[clamp(40px,5vw,64px)]"
     >
       <script
         type="application/ld+json"

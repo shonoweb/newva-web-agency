@@ -8,7 +8,9 @@ export function Footer() {
     <footer className="border-t border-line pt-12">
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-start justify-between gap-8 px-6 pb-8">
         <div>
-          <p className="text-[1.15rem] font-extrabold tracking-[0.06em] text-ink">{siteConfig.name}</p>
+          <p className="whitespace-nowrap text-[1.15rem] font-extrabold tracking-[0.06em] text-ink">
+            NEWVA WEB AGENCY
+          </p>
           <p className="mt-2 text-[0.9rem] text-ink-soft">{siteConfig.tagline}</p>
         </div>
 
@@ -26,7 +28,7 @@ export function Footer() {
       </div>
 
       <p className="border-t border-line py-6 text-center text-[0.8rem] text-ink-faint">
-        &copy; {year} {siteConfig.name}. All Rights Reserved.
+        &copy; {year} NEWVA WEB AGENCY. All Rights Reserved.
       </p>
     </footer>
   );

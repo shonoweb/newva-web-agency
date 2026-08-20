@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/cn";
+import { campaignOffer } from "@/data/campaign";
 import { pricingPlans } from "@/data/pricing";
 import { usePlanContext } from "@/components/PlanContext";
 
 export function Pricing() {
   const { setSelectedPlan } = usePlanContext();
+
   return (
     <section
       id="pricing"
@@ -27,23 +29,59 @@ export function Pricing() {
           }
         />
 
+        {/* ① 実績制作キャンペーン（最も目立つオファー） */}
         <Reveal>
-          <div className="mx-auto mb-12 max-w-[620px] rounded-[28px] border border-line bg-white px-8 py-8 text-center shadow-[var(--shadow-sm)] sm:px-9">
+          <div className="mx-auto max-w-[560px] rounded-[28px] border border-line bg-white px-7 py-9 text-center shadow-[var(--shadow-sm)] sm:px-10 sm:py-11">
             <span className="mb-4 inline-block rounded-full bg-dark px-[18px] py-1.5 text-[0.75rem] font-bold tracking-[0.04em] text-white">
-              先着10店舗限定
+              {campaignOffer.badge}
             </span>
-            <p className="mb-3 text-[1.15rem] font-extrabold text-ink">実績制作キャンペーン実施中</p>
-            <p className="text-[0.9rem] leading-[1.9] text-ink-soft">
-              現在、制作実績の掲載にご協力いただける店舗様限定で、特別価格にてホームページ制作を提供しています。
-              <br />
-              1店舗ごとに丁寧にヒアリングし、お店の魅力が伝わるサイトを制作します。
+
+            <p className="mb-3 text-[1.3rem] font-extrabold text-ink">{campaignOffer.title}</p>
+            <p className="mx-auto mb-8 max-w-[380px] text-[0.88rem] leading-[1.9] text-ink-soft">
+              {campaignOffer.description}
             </p>
+
+            <p className="mb-2 text-[0.82rem] text-ink-faint">
+              {campaignOffer.regularPriceLabel} <span className="line-through">{campaignOffer.regularPrice}</span>
+            </p>
+            <p className="mb-1.5 text-[0.85rem] font-semibold text-accent">{campaignOffer.campaignPriceLabel}</p>
+            <p className="mb-8 flex items-baseline justify-center gap-1.5">
+              <span className="text-[clamp(2.75rem,7vw,3.75rem)] font-extrabold leading-none tracking-[-0.02em] text-ink">
+                {campaignOffer.campaignPriceNum}
+              </span>
+              <span className="text-[0.95rem] font-semibold text-ink-soft">{campaignOffer.campaignPriceUnit}</span>
+            </p>
+
+            <div className="mb-8 rounded-[20px] bg-surface px-6 py-5">
+              <p className="mb-2.5 text-[0.9rem] font-semibold text-ink">
+                {campaignOffer.monthlyLabel}{" "}
+                <strong className="text-[1.15rem] font-extrabold">{campaignOffer.monthlyPrice}</strong>
+              </p>
+              <ul className="flex flex-wrap justify-center gap-x-3.5 gap-y-1.5">
+                {campaignOffer.monthlyItems.map((item) => (
+                  <li key={item} className="text-[0.8rem] text-ink-soft before:content-['・']">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <Button href="#contact" size="lg" block onClick={() => setSelectedPlan(campaignOffer.planValue)}>
+              {campaignOffer.ctaLabel}
+            </Button>
           </div>
+        </Reveal>
+
+        {/* ② 通常料金プラン(以前のベーシック/プロプランを復元) */}
+        <Reveal delay={0.15}>
+          <p className="mx-auto mb-8 mt-2 max-w-[900px] text-center text-[0.8rem] font-bold tracking-[0.1em] text-ink-soft sm:mt-4">
+            通常料金と比較する
+          </p>
         </Reveal>
 
         <div className="mx-auto grid max-w-[900px] gap-7 sm:grid-cols-2">
           {pricingPlans.map((plan, index) => (
-            <Reveal key={plan.id} delay={index * 0.1}>
+            <Reveal key={plan.id} delay={0.2 + index * 0.1}>
               <article
                 className={cn(
                   "relative flex h-full flex-col rounded-[28px] border bg-white px-7 py-10 shadow-[var(--shadow-sm)] sm:px-8",
@@ -104,13 +142,11 @@ export function Pricing() {
           ))}
         </div>
 
-        <Reveal delay={0.2}>
-          <p className="mx-auto mt-12 max-w-[620px] text-center text-[0.9rem] leading-[1.9] text-ink-soft">
-            ホームページ制作後も、お店のWeb担当として継続的にサポートします。
+        <Reveal delay={0.4}>
+          <p className="mx-auto mt-12 max-w-[620px] text-center text-[0.85rem] leading-[1.8] text-ink-soft">
+            {campaignOffer.supportNote}
             <br />
-            制作して終わりではなく、お店の成長に合わせて一緒に改善していきます。
-            <br />
-            掲載価格はすべて税込です。ページ数やご要望により料金は変動する場合がありますので、詳しくはお気軽にご相談ください。
+            <span className="text-[0.78rem] text-ink-faint">{campaignOffer.priceNote}</span>
           </p>
         </Reveal>
       </div>

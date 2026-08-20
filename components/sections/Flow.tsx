@@ -49,10 +49,10 @@ export function Flow() {
           {steps.map((step, index) => (
             <li key={step.num}>
               <Reveal delay={index * 0.12} y={18}>
-                <div className="h-full rounded-[28px] border border-line px-7 py-8">
+                <div className="group h-full rounded-[28px] border border-line px-7 py-8 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-ink/25">
                   <div className="mb-3 flex items-baseline gap-1.5">
                     <span className="text-[0.7rem] font-medium tracking-[0.1em] text-ink-faint">STEP</span>
-                    <span className="text-[1.6rem] font-extrabold leading-none tracking-[-0.02em] text-accent">
+                    <span className="text-[1.9rem] font-extrabold leading-none tracking-[-0.02em] text-accent transition-transform duration-300 group-hover:scale-105">
                       {step.num}
                     </span>
                   </div>

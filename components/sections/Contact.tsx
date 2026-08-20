@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { ChevronDownIcon, ClockIcon, MailIcon, PhoneIcon } from "@/components/icons/UtilityIcons";
+import { ChevronDownIcon, ClockIcon, MailIcon } from "@/components/icons/UtilityIcons";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { usePlanContext } from "@/components/PlanContext";
+import { campaignOffer } from "@/data/campaign";
 import { pricingPlans } from "@/data/pricing";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/cn";
@@ -112,7 +113,10 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative scroll-mt-[var(--header-h)] overflow-hidden py-16 sm:py-[clamp(72px,10vw,120px)]">
+    <section
+      id="contact"
+      className="relative scroll-mt-[var(--header-h)] overflow-hidden pb-10 pt-16 sm:pb-[clamp(40px,7vw,88px)] sm:pt-[clamp(72px,10vw,120px)]"
+    >
       <ContactBlob />
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
@@ -131,9 +135,9 @@ export function Contact() {
           }
         />
 
-        <div className="grid gap-[clamp(32px,5vw,64px)] rounded-[28px] bg-surface-alt p-[clamp(32px,5vw,56px)] tablet:grid-cols-[0.85fr_1.15fr]">
+        <div className="-mt-4 grid gap-[clamp(24px,4vw,48px)] rounded-[28px] bg-surface-alt p-[clamp(28px,4vw,48px)] tablet:grid-cols-[0.85fr_1.15fr] sm:-mt-6">
           <Reveal delay={0.15} duration={0.5}>
-            <ul className="flex flex-col gap-6">
+            <ul className="flex flex-col gap-5">
               <li className="flex items-start gap-4">
                 <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white text-ink shadow-[var(--shadow-sm)]">
                   <MailIcon className="h-5 w-5" />
@@ -142,20 +146,6 @@ export function Contact() {
                   <p className="mb-0.5 text-[0.8rem] text-ink-soft">メール</p>
                   <a href={`mailto:${siteConfig.email}`} className="font-semibold transition-colors hover:text-accent">
                     {siteConfig.email}
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white text-ink shadow-[var(--shadow-sm)]">
-                  <PhoneIcon className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="mb-0.5 text-[0.8rem] text-ink-soft">お電話</p>
-                  <a
-                    href={`tel:${siteConfig.phone.replace(/-/g, "")}`}
-                    className="font-semibold transition-colors hover:text-accent"
-                  >
-                    {siteConfig.phone}
                   </a>
                 </div>
               </li>
@@ -172,7 +162,7 @@ export function Contact() {
           </Reveal>
 
           <Reveal delay={0.3} duration={0.5}>
-            <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-4">
               <Field label="お名前" htmlFor="name" required error={errors.name}>
                 <input
                   id="name"
@@ -201,6 +191,7 @@ export function Contact() {
                     className={cn(inputClass, "appearance-none pr-10")}
                   >
                     <option value="">選択してください（未定でも大丈夫です）</option>
+                    <option value={campaignOffer.planValue}>{campaignOffer.planValue}</option>
                     {pricingPlans.map((plan) => (
                       <option key={plan.id} value={plan.planValue}>
                         {plan.planValue}

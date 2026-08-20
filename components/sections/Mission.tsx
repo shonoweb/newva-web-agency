@@ -1,41 +1,41 @@
-import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-const missions = [
+const values = [
   {
-    id: "know",
-    num: "01",
-    title: "知る",
+    id: "find",
+    title: "魅力を見つける",
     description: (
       <>
-        お店の想いやこだわりを、
+        お店自身では当たり前になっている魅力まで、
         <br />
-        丁寧にヒアリングします。
+        丁寧なヒアリングを通して引き出します。
       </>
     ),
   },
   {
-    id: "shape",
-    num: "02",
-    title: "形にする",
+    id: "express",
+    title: "その店らしく伝える",
     description: (
       <>
-        そのお店らしさが伝わるデザインへ
+        テンプレートに当てはめるのではなく、
         <br />
-        丁寧に落とし込みます。
+        お店の雰囲気やこだわりまで伝わる
+        <br />
+        デザインへ仕上げます。
       </>
     ),
   },
   {
-    id: "deliver",
-    num: "03",
-    title: "届ける",
+    id: "connect",
+    title: "新しい出会いにつなげる",
     description: (
       <>
-        Webを通して、新しいお客様との
+        見た目だけで終わらせず、
         <br />
-        接点をつくります。
+        来店やお問い合わせにつながる
+        <br />
+        ホームページを目指します。
       </>
     ),
   },
@@ -60,19 +60,17 @@ export function Mission() {
               Webを通して新しいお客様へ届けます。
             </span>
           }
-          className="max-w-[640px] leading-[2]"
+          className="max-w-[640px] leading-[2] [&>p:first-child]:mb-6"
         />
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {missions.map((mission, index) => (
-            <Reveal key={mission.id} delay={index * 0.12} y={18}>
-              <Card variant="flat" className="h-full px-7 py-9 text-center">
-                <span className="mb-1 block text-[1.25rem] font-extrabold leading-none tracking-[-0.02em] text-accent">
-                  {mission.num}
-                </span>
-                <h3 className="mb-2.5 text-[1.05rem] font-bold text-ink">{mission.title}</h3>
-                <p className="text-[0.92rem] leading-[1.8] text-ink-soft">{mission.description}</p>
-              </Card>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+          {values.map((value, index) => (
+            <Reveal key={value.id} delay={index * 0.12} y={18}>
+              <div className="h-full px-2 text-center">
+                <span className="mx-auto mb-4 block h-[2px] w-8 bg-accent/60" aria-hidden="true" />
+                <h3 className="mb-2.5 text-[1.15rem] font-bold text-ink">{value.title}</h3>
+                <p className="text-[0.92rem] leading-[1.8] text-ink-soft">{value.description}</p>
+              </div>
             </Reveal>
           ))}
         </div>

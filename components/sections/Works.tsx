@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/cn";
@@ -224,6 +225,11 @@ export function Works() {
       <p className="mx-auto mt-6 max-w-[1200px] px-6 text-center text-[0.72rem] text-ink-faint">
         ※掲載している画像はデザインイメージです。順次、実際の制作事例に更新してまいります。
       </p>
+
+      <Reveal className="mx-auto mt-6 flex max-w-[1200px] flex-col items-center gap-4 px-6 text-center sm:mt-8">
+        <p className="text-[1.05rem] font-bold text-ink">お店に合ったホームページを作りませんか？</p>
+        <Button href="#contact">無料で相談する</Button>
+      </Reveal>
     </section>
   );
 }
