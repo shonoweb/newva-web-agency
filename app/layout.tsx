@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { BackToTopButton } from "@/components/layout/BackToTopButton";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { ScrollRestorationManager } from "@/components/ScrollRestorationManager";
+import { Opening } from "@/components/Opening";
 import { siteConfig } from "@/lib/site";
 
 const pageTitle = `${siteConfig.name} | 飲食店・美容室・個人店のためのWebサイト制作会社`;
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="ja" className="h-full">
       <body className="min-h-full">
         <ScrollRestorationManager />
+        <Opening />
 
         <script
           type="application/ld+json"

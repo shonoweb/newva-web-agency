@@ -1,5 +1,5 @@
 import { PlanProvider } from "@/components/PlanContext";
-import { Hero } from "@/components/sections/Hero";
+import { HeroEditorial2 } from "@/components/sections/HeroEditorial2";
 import { Problem } from "@/components/sections/Problem";
 import { Service } from "@/components/sections/Service";
 import { Works } from "@/components/sections/Works";
@@ -13,7 +13,7 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <main id="main" className="pb-20 sm:pb-0">
-      <Hero />
+      <HeroEditorial2 />
       <Problem />
       <Service />
       <Works />
