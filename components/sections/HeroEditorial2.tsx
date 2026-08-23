@@ -30,7 +30,7 @@ export function HeroEditorial2() {
 
   return (
     <section id="home" className="relative overflow-hidden">
-      <div className="relative flex min-h-[100dvh] flex-col justify-center px-5 pb-14 pt-[calc(var(--header-h)+28px)] sm:px-8 nav:px-12">
+      <div className="relative flex min-h-[100dvh] flex-col justify-center px-5 pb-14 pt-[calc(var(--header-h)+28px)] sm:px-8 nav:min-h-[94dvh] nav:px-12 nav:pt-[calc(var(--header-h)+12px)]">
         <div className="relative mx-auto w-full max-w-[1600px]">
           <motion.h1
             initial={shouldReduceMotion ? false : { opacity: 0, clipPath: "inset(0 0 100% 0)" }}
@@ -49,7 +49,7 @@ export function HeroEditorial2() {
             initial={shouldReduceMotion ? false : { opacity: 0, clipPath: "inset(0 0 100% 0)" }}
             animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
             transition={{ duration: 0.8, delay: base + STAGGER.visual, ease: ENTRANCE_EASE }}
-            className="relative z-0 -mx-5 mt-6 aspect-[16/10] w-[calc(100%+40px)] overflow-hidden sm:-mx-8 sm:w-[calc(100%+64px)] nav:absolute nav:right-[-96px] nav:top-[6%] nav:mx-0 nav:mt-0 nav:aspect-[3/4] nav:w-[32vw] nav:max-w-[400px] tablet:right-[-128px] tablet:w-[28vw]"
+            className="relative z-0 -mx-5 mt-6 aspect-[16/10] w-[calc(100%+40px)] overflow-hidden sm:-mx-8 sm:w-[calc(100%+64px)] nav:absolute nav:right-[-108px] nav:top-[6%] nav:mx-0 nav:mt-0 nav:aspect-[3/4] nav:w-[32vw] nav:max-w-[400px] nav:origin-top-left nav:scale-[1.03] tablet:right-[-144px] tablet:w-[28vw]"
           >
             <Image
               src="/images/hero-restaurant-web.png"
@@ -60,6 +60,15 @@ export function HeroEditorial2() {
               sizes="(min-width: 1428px) 712px, (min-width: 980px) 50vw, (min-width: 860px) 57vw, 100vw"
               className="object-cover"
               style={{ objectPosition: "20% 32%" }}
+            />
+            {/* 大型文字と写真が重なる左端だけを白背景へ自然に馴染ませる、ごく薄いグラデーション(PCのみ) */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-y-0 left-0 z-[1] hidden w-[90px] nav:block"
+              style={{
+                background:
+                  "linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.15) 55%, rgba(255,255,255,0) 100%)",
+              }}
             />
           </motion.div>
 
