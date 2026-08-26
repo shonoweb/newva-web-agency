@@ -10,7 +10,9 @@ const services = [
       <>
         写真・言葉・デザインを通して、
         <br />
-        お店らしさが伝わるWebサイトを制作します。
+        お店らしさが伝わるWebサイトを
+        <br className="hidden md:inline" />
+        制作します。
       </>
     ),
     path: (
@@ -27,7 +29,9 @@ const services = [
       <>
         検索やSNSからお店を知ってもらい、
         <br />
-        予約・問い合わせまで迷わず進める導線を設計します。
+        予約・問い合わせまで迷わず進める
+        <br className="hidden md:inline" />
+        導線を設計します。
       </>
     ),
     path: (
@@ -44,7 +48,9 @@ const services = [
       <>
         公開後の更新や修正にも対応し、
         <br />
-        お店の変化に合わせてサイトを育てていきます。
+        お店の変化に合わせてサイトを
+        <br className="hidden md:inline" />
+        育てていきます。
       </>
     ),
     path: (
