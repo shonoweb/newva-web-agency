@@ -75,7 +75,7 @@ export function Service() {
           title="私たちのサービス"
           description={
             <>
-              つくって終わりではなく、
+              作って終わりではなく、
               <br />
               お客様に見つけてもらうところまで。
             </>

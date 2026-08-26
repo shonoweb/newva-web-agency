@@ -174,9 +174,9 @@ export function Works() {
           title="制作サンプル"
           description={
             <>
-              業種やお店の雰囲気に合わせたWebデザインをご提案します。
+              お店ごとの魅力に合わせて、
               <br />
-              制作イメージの一例をご覧ください。
+              一つひとつデザインしています。
             </>
           }
           className="mb-10 md:mb-12"
@@ -221,10 +221,6 @@ export function Works() {
           />
         </div>
       </div>
-
-      <p className="mx-auto mt-6 max-w-[1200px] px-6 text-center text-[0.72rem] text-ink-faint">
-        ※掲載している画像はデザインイメージです。順次、実際の制作事例に更新してまいります。
-      </p>
 
       <Reveal className="mx-auto mt-6 flex max-w-[1200px] flex-col items-center gap-4 px-6 text-center sm:mt-8">
         <p className="text-[1.05rem] font-bold text-ink">お店に合ったホームページを作りませんか？</p>
