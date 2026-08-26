@@ -79,14 +79,14 @@ export function Service() {
         <div className="grid grid-cols-1 gap-7 md:grid-cols-3">
           {services.map((service, index) => (
             <Reveal key={service.id} delay={index * 0.1}>
-              <Card variant="elevated" className="flex h-full flex-col items-center px-8 py-9 text-center">
+              <Card variant="elevated" className="flex h-full flex-col items-center px-6 py-9 text-center">
                 <span className="mb-4 inline-flex h-14 w-14 items-center justify-center text-ink" aria-hidden="true">
                   <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-[34px] w-[34px]">
                     {service.path}
                   </svg>
                 </span>
                 <h3 className="mb-2.5 text-[1.15rem] font-bold text-ink">{service.title}</h3>
-                <p className="text-[0.95rem] leading-[1.75] text-ink-soft">{service.description}</p>
+                <p className="text-pretty break-keep text-[0.95rem] leading-[1.75] text-ink-soft">{service.description}</p>
               </Card>
             </Reveal>
           ))}
