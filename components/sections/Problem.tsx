@@ -54,7 +54,7 @@ export function Problem() {
   return (
     <section
       aria-label="よくあるお悩み"
-      className="py-16 pb-10 sm:py-[clamp(64px,8vw,100px)] sm:pb-[clamp(40px,6vw,76px)]"
+      className="py-16 pb-7 sm:py-[clamp(64px,8vw,100px)] sm:pb-[clamp(28px,4vw,54px)]"
     >
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
@@ -85,10 +85,11 @@ export function Problem() {
 
         <Reveal delay={0.3}>
           <div className="mx-auto mt-11 max-w-[560px] text-center">
-            <p className="text-[1.25rem] font-extrabold text-ink">その課題、Webで変えられます。</p>
-            <p className="mt-2 text-[0.92rem] text-ink-soft">
-              <strong className="font-semibold text-accent">NEWVA WEB AGENCY</strong>
-              が、集客につながる仕組みをつくります。
+            <p className="text-pretty break-keep text-[1.25rem] font-extrabold text-ink">
+              見つけてもらい、選ばれるためのWebサイトへ。
+            </p>
+            <p className="mt-2 text-pretty break-keep text-[0.92rem] text-ink-soft">
+              Webサイトをつくるだけではなく、お店を知ってもらい、来店につながる導線まで設計します。
             </p>
           </div>
         </Reveal>

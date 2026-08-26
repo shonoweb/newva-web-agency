@@ -59,7 +59,10 @@ const services = [
 
 export function Service() {
   return (
-    <section id="service" className="scroll-mt-[var(--header-h)] py-16 sm:py-[clamp(72px,10vw,120px)]">
+    <section
+      id="service"
+      className="scroll-mt-[var(--header-h)] pb-16 pt-10 sm:pb-[clamp(72px,10vw,120px)] sm:pt-[clamp(44px,6vw,76px)]"
+    >
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
           eyebrow="SERVICE"
