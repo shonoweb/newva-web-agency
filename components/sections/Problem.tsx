@@ -57,7 +57,16 @@ export function Problem() {
       className="py-16 pb-10 sm:py-[clamp(64px,8vw,100px)] sm:pb-[clamp(40px,6vw,76px)]"
     >
       <div className="mx-auto max-w-[1200px] px-6">
-        <SectionHeading eyebrow="PROBLEM" title="こんなお悩みありませんか？" />
+        <SectionHeading
+          eyebrow="PROBLEM"
+          title={
+            <span className="text-pretty break-keep">
+              お店の魅力、
+              <br />
+              ちゃんと届いていますか？
+            </span>
+          }
+        />
 
         <div className="grid grid-cols-2 gap-5 tablet:grid-cols-4">
           {problems.map((problem, index) => (

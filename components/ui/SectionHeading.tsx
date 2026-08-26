@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 
 interface SectionHeadingProps {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   description?: ReactNode;
   note?: ReactNode;
   align?: "center" | "left";
