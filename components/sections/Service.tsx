@@ -86,7 +86,9 @@ export function Service() {
                   </svg>
                 </span>
                 <h3 className="mb-2.5 text-[1.15rem] font-bold text-ink">{service.title}</h3>
-                <p className="text-pretty break-keep break-words text-[0.95rem] leading-[1.75] text-ink-soft">{service.description}</p>
+                <p className="mx-auto w-full max-w-[280px] text-pretty break-keep break-words text-[0.95rem] leading-[1.75] text-ink-soft">
+                  {service.description}
+                </p>
               </Card>
             </Reveal>
           ))}
