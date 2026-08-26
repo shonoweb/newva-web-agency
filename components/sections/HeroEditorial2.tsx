@@ -78,7 +78,7 @@ export function HeroEditorial2() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: base + STAGGER.copy, ease: ENTRANCE_EASE }}
             >
-              <p className="text-[1.05rem] font-semibold text-ink">店舗の魅力を、まだ知らない人へ。</p>
+              <p className="text-[1.2rem] font-semibold text-ink">お店の魅力を、まだ知らない人へ。</p>
               <p className="mt-2 text-[0.8rem] text-ink-faint">飲食店・美容・店舗ビジネスのためのWeb制作。</p>
             </motion.div>
 
@@ -92,7 +92,7 @@ export function HeroEditorial2() {
                 className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
                 <span className="relative">
-                  VIEW PROJECTS
+                  制作実績を見る
                   <span
                     aria-hidden="true"
                     className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100"
