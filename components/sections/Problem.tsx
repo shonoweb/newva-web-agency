@@ -61,7 +61,7 @@ export function Problem() {
           eyebrow="PROBLEM"
           title={
             <span className="text-pretty break-keep">
-              お店の魅力、
+              お店の魅力は、
               <br />
               ちゃんと届いていますか？
             </span>
