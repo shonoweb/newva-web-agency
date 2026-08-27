@@ -7,25 +7,50 @@ const commitments = [
   {
     id: "store",
     title: "お店ごとに、一から設計",
-    description: "業種や雰囲気、強みを整理し、そのお店らしさが伝わるデザインをつくります。",
+    description: (
+      <>
+        業種や雰囲気、強みを整理し、
+        <br />
+        <span className="whitespace-nowrap">そのお店らしさ</span>が伝わる
+        <span className="whitespace-nowrap">デザインをつくります。</span>
+      </>
+    ),
     icon: Store,
   },
   {
     id: "mobile",
     title: "スマホでの見やすさを最優先",
-    description: "お客様が実際に見るスマートフォンを基準に、迷わず予約・問い合わせできる設計にします。",
+    description: (
+      <>
+        お客様が実際に見る<span className="whitespace-nowrap">スマートフォンを基準に、</span>
+        <br />
+        迷わず<span className="whitespace-nowrap">予約・問い合わせできる</span>設計にします。
+      </>
+    ),
     icon: Smartphone,
   },
   {
     id: "seo",
     title: "見つけてもらうための土台づくり",
-    description: "Google検索を意識した構造や基本的なSEOまで、公開時からきちんと整えます。",
+    description: (
+      <>
+        Google検索を意識した構造や<span className="whitespace-nowrap">基本的なSEOまで、</span>
+        <br />
+        公開時から<span className="whitespace-nowrap">きちんと整えます。</span>
+      </>
+    ),
     icon: Search,
   },
   {
     id: "design",
     title: "公開して終わりにしない",
-    description: "営業時間やメニュー変更など、公開後の更新・改善にも対応します。",
+    description: (
+      <>
+        営業時間やメニュー変更など、
+        <br />
+        <span className="whitespace-nowrap">公開後の更新・改善</span>にも対応します。
+      </>
+    ),
     icon: RefreshCw,
   },
 ];
