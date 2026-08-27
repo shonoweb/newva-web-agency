@@ -52,14 +52,14 @@ export function Commitment() {
         <div className="grid gap-6 sm:grid-cols-2 tablet:grid-cols-4">
           {commitments.map((item, index) => (
             <Reveal key={item.id} delay={index * 0.08}>
-              <Card variant="elevated" className="group h-full px-6 py-8">
+              <Card variant="elevated" className="group h-full px-5 py-8">
                 <span className="mb-[18px] inline-flex h-12 w-12 items-center justify-center rounded-full bg-surface text-ink transition-colors duration-300 group-hover:bg-accent/10 group-hover:text-accent">
                   <item.icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-105" strokeWidth={1.7} />
                 </span>
-                <h3 className="mb-2.5 max-w-[220px] text-pretty break-keep break-words text-base font-bold text-ink">
+                <h3 className="mb-2.5 text-pretty break-keep break-words text-base font-bold text-ink">
                   {item.title}
                 </h3>
-                <p className="max-w-[220px] text-pretty break-keep break-words text-[0.88rem] text-ink-soft">
+                <p className="text-pretty break-keep break-words text-[0.88rem] text-ink-soft">
                   {item.description}
                 </p>
               </Card>
