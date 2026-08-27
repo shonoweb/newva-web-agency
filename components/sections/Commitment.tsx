@@ -1,4 +1,4 @@
-import { Palette, Search, Smartphone, Store } from "lucide-react";
+import { RefreshCw, Search, Smartphone, Store } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -6,28 +6,27 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const commitments = [
   {
     id: "store",
-    title: "店舗ビジネスに強い設計",
-    description:
-      "飲食店・美容室・サロンなど、業種ごとの魅力や目的に合わせ、来店や問い合わせにつながる導線まで設計します。",
+    title: "お店ごとに、一から設計",
+    description: "業種や雰囲気、強みを整理し、そのお店らしさが伝わるデザインをつくります。",
     icon: Store,
   },
   {
     id: "mobile",
-    title: "スマホからの集客を重視",
-    description: "多くのお客様が見るスマートフォンでの見やすさと、問い合わせ・予約への進みやすさまで考えて制作します。",
+    title: "スマホでの見やすさを最優先",
+    description: "お客様が実際に見るスマートフォンを基準に、迷わず予約・問い合わせできる設計にします。",
     icon: Smartphone,
   },
   {
     id: "seo",
-    title: "Google検索を意識したサイト設計",
-    description: "検索エンジンに伝わりやすい構造を意識し、Google検索から新しいお客様と出会える土台を整えます。",
+    title: "見つけてもらうための土台づくり",
+    description: "Google検索を意識した構造や基本的なSEOまで、公開時からきちんと整えます。",
     icon: Search,
   },
   {
     id: "design",
-    title: "テンプレートではなく、お店らしさを形に",
-    description: "お店の雰囲気やこだわりを丁寧にヒアリングし、その店舗ならではの魅力が伝わるデザインに仕上げます。",
-    icon: Palette,
+    title: "公開して終わりにしない",
+    description: "営業時間やメニュー変更など、公開後の更新・改善にも対応します。",
+    icon: RefreshCw,
   },
 ];
 
@@ -40,8 +39,14 @@ export function Commitment() {
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
           eyebrow="COMMITMENT"
-          title="私たちのこだわり"
-          description="はじめてのホームページ制作でも、安心してお任せいただけるように。"
+          title="お店に必要なものを、きちんと考えてつくる。"
+          description={
+            <span className="text-pretty break-keep">
+              見た目だけではなく、伝わり方や使いやすさまで。
+              <br />
+              一店舗ごとに向き合い、そのお店に合うWebサイトを設計します。
+            </span>
+          }
         />
 
         <div className="grid gap-6 sm:grid-cols-2 tablet:grid-cols-4">
@@ -51,8 +56,8 @@ export function Commitment() {
                 <span className="mb-[18px] inline-flex h-12 w-12 items-center justify-center rounded-full bg-surface text-ink transition-colors duration-300 group-hover:bg-accent/10 group-hover:text-accent">
                   <item.icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-105" strokeWidth={1.7} />
                 </span>
-                <h3 className="mb-2.5 text-base font-bold text-ink">{item.title}</h3>
-                <p className="text-[0.88rem] text-ink-soft">{item.description}</p>
+                <h3 className="mb-2.5 text-pretty break-keep text-base font-bold text-ink">{item.title}</h3>
+                <p className="text-pretty break-keep text-[0.88rem] text-ink-soft">{item.description}</p>
               </Card>
             </Reveal>
           ))}
