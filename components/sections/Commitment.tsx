@@ -56,8 +56,12 @@ export function Commitment() {
                 <span className="mb-[18px] inline-flex h-12 w-12 items-center justify-center rounded-full bg-surface text-ink transition-colors duration-300 group-hover:bg-accent/10 group-hover:text-accent">
                   <item.icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-105" strokeWidth={1.7} />
                 </span>
-                <h3 className="mb-2.5 text-pretty break-keep text-base font-bold text-ink">{item.title}</h3>
-                <p className="text-pretty break-keep text-[0.88rem] text-ink-soft">{item.description}</p>
+                <h3 className="mb-2.5 max-w-[220px] text-pretty break-keep break-words text-base font-bold text-ink">
+                  {item.title}
+                </h3>
+                <p className="max-w-[220px] text-pretty break-keep break-words text-[0.88rem] text-ink-soft">
+                  {item.description}
+                </p>
               </Card>
             </Reveal>
           ))}
