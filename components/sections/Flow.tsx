@@ -6,22 +6,46 @@ const steps = [
   {
     num: "01",
     title: "お問い合わせ・ヒアリング",
-    description: "お店の雰囲気や強み、目的、ご希望のイメージなどを丁寧にお伺いします。",
+    description: (
+      <>
+        お店の雰囲気や強み、目的、
+        <br className="hidden sm:inline" />
+        ご希望のイメージなどを丁寧にお伺いします。
+      </>
+    ),
   },
   {
     num: "02",
     title: "ご提案・お見積り",
-    description: "ヒアリングをもとに、サイト構成・デザインの方向性・費用・スケジュールをご提案します。",
+    description: (
+      <>
+        ヒアリングをもとに、サイト構成・デザインの方向性・
+        <br className="hidden sm:inline" />
+        費用・スケジュールをご提案します。
+      </>
+    ),
   },
   {
     num: "03",
     title: "デザイン・制作",
-    description: "方向性をご確認いただきながら、デザインから実装まで一つずつ形にしていきます。",
+    description: (
+      <>
+        方向性をご確認いただきながら、
+        <br className="hidden sm:inline" />
+        デザインから実装まで一つずつ形にしていきます。
+      </>
+    ),
   },
   {
     num: "04",
     title: "公開・運用サポート",
-    description: "最終確認後にサイトを公開。公開後の更新や修正についても継続してサポートします。",
+    description: (
+      <>
+        最終確認後にサイトを公開。
+        <br className="hidden sm:inline" />
+        公開後の更新や修正についても継続してサポートします。
+      </>
+    ),
   },
 ];
 
