@@ -8,6 +8,11 @@ export interface Work {
   description: string;
   /** public/ からの相対パス */
   image: string;
+  /**
+   * image がまだ配置されていない場合に表示する一時的なフォールバック画像。
+   * image の読み込みに失敗した間だけ表示され、image を配置すれば自動的に切り替わる。
+   */
+  placeholderImage?: string;
   /** 実サイトが公開されたらライブURLを設定する。未設定の間は「サイトを見る」は非リンク表示になる */
   url?: string;
   /**
@@ -30,15 +35,17 @@ export const works: Work[] = [
     title: "高級焼肉店サイト",
     category: "焼肉店",
     description: "重厚感のある黒基調で、素材へのこだわりを伝えるデザイン。",
-    image: "/images/works/portfolio-yakiniku-1.svg",
-    isPlaceholder: true,
+    image: "/images/work-yakiniku.jpg",
+    placeholderImage: "/images/works/portfolio-yakiniku-1.svg",
+    url: "https://yakiniku-premium-v2.vercel.app/",
+    isPlaceholder: false,
   },
   {
     id: "cafe",
     title: "カフェサイト",
     category: "カフェ",
     description: "あたたかみのあるトーンで、居心地の良さを伝えるデザイン。",
-    image: "/images/works/portfolio-cafe-1.svg",
+    image: "/images/work-cafe.jpg",
     isPlaceholder: true,
   },
   {

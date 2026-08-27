@@ -257,17 +257,23 @@ function WorkCard({
   cardRef: (el: HTMLElement | null) => void;
 }) {
   const number = String(index + 1).padStart(2, "0");
+  const [imageSrc, setImageSrc] = useState(work.image);
 
   const content = (
     <>
       <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] shadow-[var(--shadow-md)]">
         <Image
-          src={work.image}
+          src={imageSrc}
           alt={`${work.title}のデザインサンプル`}
           fill
           draggable={false}
           sizes="(min-width: 768px) 58vw, 88vw"
           className="object-cover transition-transform duration-500 ease-[var(--ease-brand)] group-hover:scale-[1.03]"
+          onError={() => {
+            if (work.placeholderImage && imageSrc !== work.placeholderImage) {
+              setImageSrc(work.placeholderImage);
+            }
+          }}
         />
       </div>
 
