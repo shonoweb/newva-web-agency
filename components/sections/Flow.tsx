@@ -6,22 +6,22 @@ const steps = [
   {
     num: "01",
     title: "お問い合わせ・ヒアリング",
-    description: "お店の魅力や課題、ご要望をじっくりお伺いします。",
+    description: "お店の雰囲気や強み、目的、ご希望のイメージなどを丁寧にお伺いします。",
   },
   {
     num: "02",
     title: "ご提案・お見積り",
-    description: "ヒアリングを基に、最適なデザインとプランをご提案します。",
+    description: "ヒアリングをもとに、サイト構成・デザインの方向性・費用・スケジュールをご提案します。",
   },
   {
     num: "03",
     title: "デザイン・制作",
-    description: "お店の世界観を丁寧に形にし、ご確認いただきながら制作します。",
+    description: "方向性をご確認いただきながら、デザインから実装まで一つずつ形にしていきます。",
   },
   {
     num: "04",
-    title: "公開・アフターサポート",
-    description: "公開後もご相談いただきながら、継続的にサポートします。",
+    title: "公開・運用サポート",
+    description: "最終確認後にサイトを公開。公開後の更新や修正についても継続してサポートします。",
   },
 ];
 
@@ -56,8 +56,8 @@ export function Flow() {
                       {step.num}
                     </span>
                   </div>
-                  <h3 className="mb-2.5 text-[1.05rem] font-bold text-ink">{step.title}</h3>
-                  <p className="text-[0.9rem] text-ink-soft">{step.description}</p>
+                  <h3 className="mb-2.5 text-pretty break-keep text-[1.05rem] font-bold text-ink">{step.title}</h3>
+                  <p className="text-pretty break-keep break-words text-[0.9rem] text-ink-soft">{step.description}</p>
                 </div>
               </Reveal>
             </li>
