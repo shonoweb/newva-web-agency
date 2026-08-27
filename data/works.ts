@@ -46,6 +46,7 @@ export const works: Work[] = [
     category: "カフェ",
     description: "あたたかみのあるトーンで、居心地の良さを伝えるデザイン。",
     image: "/images/work-cafe.jpg",
+    placeholderImage: "/images/works/portfolio-cafe-1.svg",
     isPlaceholder: true,
   },
   {
