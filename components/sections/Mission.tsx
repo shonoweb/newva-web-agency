@@ -20,7 +20,7 @@ const values = [
       <>
         決まった型に当てはめず、
         <br />
-        雰囲気やこだわりまで伝わるデザインに仕上げます。
+        雰囲気やこだわりまで伝わる<span className="whitespace-nowrap">デザインに仕上げます。</span>
       </>
     ),
   },
