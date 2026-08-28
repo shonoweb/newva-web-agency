@@ -20,7 +20,7 @@ export const siteConfig = {
   url: "https://example.com",
   email: "info@example.com",
   phone: "000-0000-0000",
-  hours: "平日 10:00〜18:00",
+  hours: "毎日 10:00〜24:00（土日祝も対応）",
 } as const;
 
 export interface NavLink {
