@@ -21,6 +21,12 @@ export const siteConfig = {
   email: "info@example.com",
   phone: "000-0000-0000",
   hours: "毎日 10:00〜24:00（土日祝も対応）",
+  /**
+   * プライバシーポリシーページを公開したら、そのパス/URLをここに設定する。
+   * 空文字の間はCONTACTフォームの同意リンクを非活性テキストとして表示し、
+   * 存在しないページへの遷移(404)を避ける。
+   */
+  privacyPolicyUrl: "/privacy",
 } as const;
 
 export interface NavLink {
@@ -42,4 +48,5 @@ export const footerNavLinks: NavLink[] = [
   { label: "こだわり", href: "#commitment" },
   ...headerNavLinks.slice(2),
   { label: "お問い合わせ", href: "#contact" },
+  { label: "プライバシーポリシー", href: "/privacy" },
 ];

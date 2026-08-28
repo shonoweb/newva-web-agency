@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
+import Link from "next/link";
 import { ChevronDownIcon, ClockIcon, MailIcon } from "@/components/icons/UtilityIcons";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -19,6 +20,7 @@ interface FormErrors {
   name?: string;
   email?: string;
   message?: string;
+  consent?: string;
 }
 
 const inputClass =
@@ -28,7 +30,7 @@ const GENERIC_ERROR_MESSAGE = "送信できませんでした。時間をおい�
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function validate(values: { name: string; email: string; message: string }): FormErrors {
+function validate(values: { name: string; email: string; message: string; consent: boolean }): FormErrors {
   const errors: FormErrors = {};
 
   if (!values.name.trim()) {
@@ -45,6 +47,10 @@ function validate(values: { name: string; email: string; message: string }): For
     errors.message = "お問い合わせ内容を入力してください。";
   }
 
+  if (!values.consent) {
+    errors.consent = "プライバシーポリシーへの同意が必要です。";
+  }
+
   return errors;
 }
 
@@ -53,6 +59,7 @@ export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [feedback, setFeedback] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
+  const [consent, setConsent] = useState(false);
 
   function clearFieldError(field: keyof FormErrors) {
     setErrors((prev) => {
@@ -76,7 +83,7 @@ export function Contact() {
       message: String(formData.get("message") ?? ""),
     };
 
-    const nextErrors = validate(payload);
+    const nextErrors = validate({ ...payload, consent });
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
@@ -101,6 +108,7 @@ export function Contact() {
         setFeedback(result.message);
         form.reset();
         setSelectedPlan("");
+        setConsent(false);
         setErrors({});
       } else {
         setStatus("error");
@@ -163,6 +171,8 @@ export function Contact() {
 
           <Reveal delay={0.3} duration={0.5}>
             <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <p className="text-[0.78rem] text-ink-faint">通常1〜2営業日以内にご返信します。</p>
+
               <Field label="お名前" htmlFor="name" required error={errors.name}>
                 <input
                   id="name"
@@ -231,6 +241,47 @@ export function Contact() {
               </Field>
 
               <div>
+                <div className="flex items-start gap-3 py-1">
+                  <input
+                    id="consent"
+                    name="consent"
+                    type="checkbox"
+                    required
+                    checked={consent}
+                    onChange={(event) => {
+                      setConsent(event.target.checked);
+                      clearFieldError("consent");
+                    }}
+                    aria-invalid={errors.consent ? true : undefined}
+                    aria-describedby={errors.consent ? "consent-error" : undefined}
+                    className="mt-0.5 h-5 w-5 flex-shrink-0 cursor-pointer rounded border-line text-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+                  />
+                  <label htmlFor="consent" className="cursor-pointer text-[0.85rem] leading-relaxed text-ink-soft">
+                    {siteConfig.privacyPolicyUrl ? (
+                      <Link
+                        href={siteConfig.privacyPolicyUrl}
+                        className="font-semibold text-ink underline underline-offset-2 hover:text-accent"
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        プライバシーポリシー
+                      </Link>
+                    ) : (
+                      <span className="font-semibold text-ink underline decoration-dotted underline-offset-2">
+                        プライバシーポリシー
+                      </span>
+                    )}
+                    に同意する
+                    <span className="ml-2 inline-block rounded-full bg-accent px-2 py-0.5 align-middle text-[0.68rem] font-bold text-white">
+                      必須
+                    </span>
+                  </label>
+                </div>
+                {errors.consent && (
+                  <p id="consent-error" className="mb-3 text-[0.8rem] text-red-600">
+                    {errors.consent}
+                  </p>
+                )}
+
                 <Button type="submit" size="lg" block disabled={status === "submitting"}>
                   {status === "submitting" ? "送信中..." : "無料で相談する"}
                 </Button>
