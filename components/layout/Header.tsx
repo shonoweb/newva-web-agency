@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { HashLink } from "@/components/ui/HashLink";
 import { CloseIcon, MenuIcon } from "@/components/icons/UtilityIcons";
@@ -13,6 +15,8 @@ import { cn } from "@/lib/cn";
  * （デスクトップでも水平ナビ・独立したCTAボタンは表示しない）。
  */
 export function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -40,13 +44,23 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between gap-6 px-6">
-        <HashLink
-          href="#home"
-          onClick={closeNav}
-          className="whitespace-nowrap text-base font-extrabold tracking-[0.04em] text-ink sm:text-[1.15rem] sm:tracking-[0.06em]"
-        >
-          NEWVA WEB AGENCY
-        </HashLink>
+        {isHome ? (
+          <HashLink
+            href="#home"
+            onClick={closeNav}
+            className="whitespace-nowrap text-base font-extrabold tracking-[0.04em] text-ink sm:text-[1.15rem] sm:tracking-[0.06em]"
+          >
+            NEWVA WEB AGENCY
+          </HashLink>
+        ) : (
+          <Link
+            href="/"
+            onClick={closeNav}
+            className="whitespace-nowrap text-base font-extrabold tracking-[0.04em] text-ink sm:text-[1.15rem] sm:tracking-[0.06em]"
+          >
+            NEWVA WEB AGENCY
+          </Link>
+        )}
 
         <button
           type="button"

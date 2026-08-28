@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HashLink } from "@/components/ui/HashLink";
 import { footerNavLinks, siteConfig } from "@/lib/site";
 
@@ -8,9 +9,9 @@ export function Footer() {
     <footer className="border-t border-line pt-12">
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-start justify-between gap-8 px-6 pb-8">
         <div>
-          <p className="whitespace-nowrap text-[1.15rem] font-extrabold tracking-[0.06em] text-ink">
+          <Link href="/" className="whitespace-nowrap text-[1.15rem] font-extrabold tracking-[0.06em] text-ink">
             NEWVA WEB AGENCY
-          </p>
+          </Link>
           <p className="mt-2 text-[0.9rem] text-ink-soft">{siteConfig.tagline}</p>
         </div>
 

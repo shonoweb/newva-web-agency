@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
@@ -103,6 +104,13 @@ export default function PrivacyPage() {
       className="pt-[calc(var(--header-h)+40px)] pb-16 sm:pt-[calc(var(--header-h)+64px)] sm:pb-[clamp(72px,10vw,120px)]"
     >
       <div className="mx-auto max-w-[1200px] px-6">
+        <Link
+          href="/"
+          className="mb-6 inline-flex min-h-11 items-center text-[0.85rem] text-ink-soft transition-colors duration-200 hover:text-ink"
+        >
+          ← サイトに戻る
+        </Link>
+
         <SectionHeading eyebrow="PRIVACY POLICY" title="プライバシーポリシー" align="left" className="mb-12 max-w-2xl md:mb-16" />
 
         <div className="mx-auto max-w-[720px] text-[0.95rem] leading-[1.9] text-ink-soft">

@@ -260,6 +260,8 @@ export function Contact() {
                     {siteConfig.privacyPolicyUrl ? (
                       <Link
                         href={siteConfig.privacyPolicyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="font-semibold text-ink underline underline-offset-2 hover:text-accent"
                         onClick={(event) => event.stopPropagation()}
                       >
