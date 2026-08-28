@@ -105,7 +105,7 @@ export default function PrivacyPage() {
     >
       <div className="mx-auto max-w-[1200px] px-6">
         <Link
-          href="/"
+          href="/#contact"
           className="mb-6 inline-flex min-h-11 items-center text-[0.85rem] text-ink-soft transition-colors duration-200 hover:text-ink"
         >
           ← サイトに戻る
