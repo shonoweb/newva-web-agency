@@ -171,7 +171,7 @@ export function Contact() {
 
           <Reveal delay={0.3} duration={0.5}>
             <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <p className="text-[0.78rem] text-ink-faint">通常1〜2営業日以内にご返信します。</p>
+              <p className="text-[0.78rem] text-ink-faint">通常1〜2日以内にご返信します。</p>
 
               <Field label="お名前" htmlFor="name" required error={errors.name}>
                 <input
