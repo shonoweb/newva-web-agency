@@ -60,7 +60,7 @@ export function Problem() {
         <SectionHeading
           eyebrow="PROBLEM"
           title={
-            <span className="text-pretty break-keep">
+            <span className="text-pretty break-keep break-words">
               お店の魅力は、
               <br />
               ちゃんと届いていますか？

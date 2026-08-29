@@ -66,7 +66,7 @@ export function Commitment() {
           eyebrow="COMMITMENT"
           title="お店に必要なものを、きちんと考えてつくる。"
           description={
-            <span className="text-pretty break-keep">
+            <span className="text-pretty break-keep break-words">
               見た目だけではなく、伝わり方や使いやすさまで。
               <br />
               一店舗ごとに向き合い、そのお店に合うWebサイトを設計します。

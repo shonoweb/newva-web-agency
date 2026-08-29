@@ -131,7 +131,7 @@ export function Contact() {
           eyebrow="CONTACT"
           title="お問い合わせ"
           description={
-            <span className="text-pretty break-keep">
+            <span className="text-pretty break-keep break-words">
               まだ依頼するか決まっていなくても大丈夫です。
               <br />
               お店のお悩みやご希望をお聞きしたうえで、
