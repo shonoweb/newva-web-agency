@@ -48,7 +48,9 @@ const services = [
       <>
         公開後の更新や修正にも対応し、
         <br />
-        お店の変化に合わせてサイトを
+        お店の変化に合わせて
+        <br className="md:hidden" />
+        サイトを
         <br className="hidden md:inline" />
         育てていきます。
       </>

@@ -135,7 +135,7 @@ export function Contact() {
               まだ依頼するか決まっていなくても大丈夫です。
               <br />
               お店のお悩みやご希望をお聞きしたうえで、
-              <br className="hidden nav:inline" />
+              <br />
               最適な制作内容をご提案します。
               <br />
               ご相談・お見積りは無料です。

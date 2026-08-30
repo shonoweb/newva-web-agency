@@ -64,12 +64,20 @@ export function Commitment() {
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
           eyebrow="COMMITMENT"
-          title="お店に必要なものを、きちんと考えてつくる。"
+          title={
+            <span className="break-keep">
+              お店に必要なものを、
+              <br className="sm:hidden" />
+              きちんと考えてつくる。
+            </span>
+          }
           description={
             <span className="text-pretty break-keep break-words">
               見た目だけではなく、伝わり方や使いやすさまで。
               <br />
-              一店舗ごとに向き合い、そのお店に合うWebサイトを設計します。
+              一店舗ごとに向き合い、そのお店に合う
+              <br className="sm:hidden" />
+              <span className="whitespace-nowrap">Webサイトを設計します。</span>
             </span>
           }
         />
