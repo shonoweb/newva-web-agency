@@ -86,7 +86,9 @@ export function Problem() {
         <Reveal delay={0.3}>
           <div className="mx-auto mt-11 max-w-[560px] text-center">
             <p className="text-pretty break-keep break-words text-[1.25rem] font-extrabold text-ink">
-              見つけてもらい、選ばれるためのWebサイトへ。
+              見つけてもらい、選ばれるための
+              <br className="sm:hidden" />
+              <span className="whitespace-nowrap">Webサイトへ。</span>
             </p>
             <p className="mt-2 text-pretty break-keep break-words text-[0.92rem] text-ink-soft">
               Webサイトをつくるだけではなく、お店を知ってもらい、来店につながる導線まで設計します。
