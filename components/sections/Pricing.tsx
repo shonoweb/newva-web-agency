@@ -24,7 +24,9 @@ export function Pricing() {
             <>
               お店に合わせて選べる、シンプルな料金プラン。
               <br />
-              ご要望やサイトの規模に合わせて、最適なプランをご提案します。
+              ご要望やサイトの規模に合わせて、
+              <br className="sm:hidden" />
+              最適なプランをご提案します。
             </>
           }
         />
@@ -38,7 +40,15 @@ export function Pricing() {
 
             <p className="mb-3 text-[1.3rem] font-extrabold text-ink">{campaignOffer.title}</p>
             <p className="mx-auto mb-8 max-w-[380px] text-[0.88rem] leading-[1.9] text-ink-soft">
-              {campaignOffer.description}
+              <span className="break-keep break-words">
+                ベーシックプラン相当のホームページ制作を、
+                <br className="sm:hidden" />
+                制作実績への掲載にご協力いただける
+                <br className="sm:hidden" />
+                店舗様限定で
+                <br className="sm:hidden" />
+                <span className="whitespace-nowrap">特別価格にてご提供します。</span>
+              </span>
             </p>
 
             <p className="mb-2 text-[0.82rem] text-ink-faint">

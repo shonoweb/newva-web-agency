@@ -30,7 +30,7 @@ const services = [
         検索やSNSからお店を知ってもらい、
         <br />
         予約・問い合わせまで迷わず進める
-        <br className="hidden md:inline" />
+        <br />
         導線を設計します。
       </>
     ),
