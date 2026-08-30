@@ -190,7 +190,7 @@ export function Works() {
           aria-roledescription="carousel"
           aria-label="制作サンプル一覧"
           tabIndex={0}
-          className="cursor-grab touch-pan-x select-none overflow-x-auto overscroll-x-contain scroll-pl-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:scroll-pl-10 [&::-webkit-scrollbar]:hidden"
+          className="cursor-grab touch-auto select-none overflow-x-auto overscroll-x-contain scroll-pl-6 [-ms-overflow-style:none] [scrollbar-width:none] sm:scroll-pl-10 [&::-webkit-scrollbar]:hidden"
         >
           <div className="flex snap-x snap-proximity gap-6 px-6 pb-2 sm:px-10">
             {works.map((work, index) => (

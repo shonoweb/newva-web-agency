@@ -47,13 +47,17 @@ export function Mission() {
       <div className="mx-auto max-w-[1200px] px-6">
         <SectionHeading
           eyebrow="MESSAGE"
-          title="いいお店が、ちゃんと見つかるWebを。"
+          title={
+            <span className="break-keep">
+              いいお店が、ちゃんと
+              <br className="sm:hidden" />
+              見つかるWebを。
+            </span>
+          }
           description={
             <span className="text-pretty break-keep break-words">
-              どれだけ魅力があっても、知られなければ選ばれるきっかけは生まれません。
-              <br className="hidden md:inline" />
-              私たちは、お店らしさを丁寧に整理し、伝わる形にして、
-              <br className="hidden md:inline" />
+              お店らしさを丁寧に整理し、伝わる形へ。
+              <br />
               新しいお客様との出会いにつなげます。
             </span>
           }

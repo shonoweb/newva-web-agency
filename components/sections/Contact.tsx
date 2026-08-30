@@ -163,7 +163,11 @@ export function Contact() {
                 </span>
                 <div>
                   <p className="mb-0.5 text-[0.8rem] text-ink-soft">対応時間</p>
-                  <p className="font-semibold text-ink">{siteConfig.hours}</p>
+                  <p className="font-semibold text-ink">
+                    {siteConfig.hours}
+                    <br />
+                    {siteConfig.hoursNote}
+                  </p>
                 </div>
               </li>
             </ul>

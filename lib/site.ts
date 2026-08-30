@@ -20,7 +20,8 @@ export const siteConfig = {
   url: "https://example.com",
   email: "info@example.com",
   phone: "000-0000-0000",
-  hours: "毎日 10:00〜24:00（土日祝も対応）",
+  hours: "毎日 10:00〜24:00",
+  hoursNote: "土日祝も対応",
   /**
    * プライバシーポリシーページを公開したら、そのパス/URLをここに設定する。
    * 空文字の間はCONTACTフォームの同意リンクを非活性テキストとして表示し、
