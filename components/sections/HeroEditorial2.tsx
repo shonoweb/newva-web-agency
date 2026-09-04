@@ -55,8 +55,9 @@ export function HeroEditorial2() {
               src="/images/hero-restaurant-web.png"
               alt="NEWVAが制作する店舗Webサイトのイメージ"
               fill
-              priority
-              quality={95}
+              preload
+              fetchPriority="high"
+              quality={80}
               sizes="(min-width: 1428px) 712px, (min-width: 980px) 50vw, (min-width: 860px) 57vw, 100vw"
               className="object-cover"
               style={{ objectPosition: "20% 32%" }}
