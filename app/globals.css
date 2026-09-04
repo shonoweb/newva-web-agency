@@ -31,8 +31,10 @@
   --color-ink: #18181b;
   /* Secondary Text: 本文・説明文・サブコピー・カード説明文 */
   --color-ink-soft: #71717a;
-  /* Muted Text: 補助情報・小さなラベル・注釈など、多用しない控えめな用途のみ */
-  --color-ink-faint: #a1a1aa;
+  /* Muted Text: 補助情報・小さなラベル・注釈など、多用しない控えめな用途のみ
+     WCAG AA(4.5:1)を満たすよう、白(#fff)・Secondary Background(#f7f7f8)・
+     Card Background(#f4f4f5)のいずれの上でも十分なコントラストになる濃さに調整済み。 */
+  --color-ink-faint: #6c6c75;
 
   /* Border: カード境界線・区切り線・フォーム。輪郭がわずかに分かる程度に留める */
   --color-line: #e4e4e7;
