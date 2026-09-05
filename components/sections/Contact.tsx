@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
+import { sendGAEvent } from "@next/third-parties/google";
 import { ChevronDownIcon, ClockIcon, MailIcon } from "@/components/icons/UtilityIcons";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -110,6 +111,7 @@ export function Contact() {
         setSelectedPlan("");
         setConsent(false);
         setErrors({});
+        sendGAEvent("event", "contact_submit");
       } else {
         setStatus("error");
         setFeedback(result.message || GENERIC_ERROR_MESSAGE);
