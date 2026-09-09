@@ -41,7 +41,7 @@ export function Pricing() {
             <p className="mb-3 text-[1.3rem] font-extrabold text-ink">{campaignOffer.title}</p>
             <p className="mx-auto mb-8 max-w-[380px] text-[0.88rem] leading-[1.9] text-ink-soft">
               <span className="break-keep break-words">
-                ベーシックプラン相当のホームページ制作を、
+                プロプラン相当のホームページ制作を、
                 <br className="sm:hidden" />
                 制作実績への掲載にご協力いただける
                 <br className="sm:hidden" />
