@@ -14,10 +14,10 @@ export const siteConfig = {
     "デザイン会社",
   ],
   /**
-   * 本番ドメインが確定したら差し替える。
    * metadataBase / JSON-LD の url に利用される。
+   * 本番ドメイン: https://newvaagency.com（www.は308でこちらにリダイレクト、Vercel側で設定済み）
    */
-  url: "https://example.com",
+  url: "https://newvaagency.com",
   email: "info@example.com",
   phone: "000-0000-0000",
   hours: "毎日 10:00〜24:00",
