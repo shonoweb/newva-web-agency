@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: ogTitle,
     description: ogDescription,
-    images: ["/images/hero-restaurant-web.png"],
+    images: ["/images/og/newva-hero-og-v2.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: ogTitle,
     description: ogDescription,
-    images: ["/images/hero-restaurant-web.png"],
+    images: ["/images/og/newva-hero-og-v2.png"],
   },
 };
 
