@@ -42,12 +42,13 @@ export const works: Work[] = [
   },
   {
     id: "cafe",
-    title: "カフェサイト",
-    category: "カフェ",
-    description: "あたたかみのあるトーンで、居心地の良さを伝えるデザイン。",
-    image: "/images/work-cafe.jpg",
+    title: "NEWVA CAFE",
+    category: "CAFE / WEBSITE",
+    description: "ブランドの世界観を活かし、メニューやアクセスまで見やすく整えたデザイン。",
+    image: "/images/work-cafe.webp",
     placeholderImage: "/images/works/portfolio-cafe-1.svg",
-    isPlaceholder: true,
+    url: "https://cafe.newvaagency.com/",
+    isPlaceholder: false,
   },
   {
     id: "restaurant",
