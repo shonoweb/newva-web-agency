@@ -58,12 +58,4 @@ export const works: Work[] = [
     image: "/images/works/portfolio-restaurant-1.svg",
     isPlaceholder: true,
   },
-  {
-    id: "salon",
-    title: "美容室サイト",
-    category: "美容室",
-    description: "洗練された雰囲気とご予約導線を両立したデザイン。",
-    image: "/images/works/portfolio-salon-1.svg",
-    isPlaceholder: true,
-  },
 ];
