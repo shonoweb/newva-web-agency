@@ -80,7 +80,7 @@ export function HeroEditorial2() {
               transition={{ duration: 0.6, delay: base + STAGGER.copy, ease: ENTRANCE_EASE }}
             >
               <p className="text-[1.2rem] font-semibold text-ink">お店の魅力を、まだ知らない人へ。</p>
-              <p className="mt-2 text-[0.8rem] text-ink-faint">飲食店・美容・店舗ビジネスのためのWeb制作。</p>
+              <p className="mt-2 text-[0.8rem] text-ink-faint">飲食店に特化したWeb制作。</p>
             </motion.div>
 
             <motion.div
