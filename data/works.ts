@@ -43,7 +43,7 @@ export const works: Work[] = [
   {
     id: "cafe",
     title: "NEWVA CAFE",
-    category: "CAFE / WEBSITE",
+    category: "CAFE",
     description: "ブランドの世界観を活かし、メニューやアクセスまで見やすく整えたデザイン。",
     image: "/images/work-cafe.webp",
     placeholderImage: "/images/works/portfolio-cafe-1.svg",
