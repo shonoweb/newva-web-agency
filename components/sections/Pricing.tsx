@@ -3,11 +3,26 @@
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { campaignOffer } from "@/data/campaign";
+import { campaignOffer, type MainFeature } from "@/data/campaign";
 import { usePlanContext } from "@/components/PlanContext";
+
+function FeatureItem({ feature }: { feature: MainFeature }) {
+  return (
+    <li className="relative pl-7">
+      <span className="absolute left-0 top-[3px] h-4 w-4 rounded-full bg-accent/15" />
+      <span className="absolute left-1 top-[10px] h-1 w-2 -rotate-45 border-b-2 border-l-2 border-accent" />
+      <p className="text-[0.92rem] font-medium leading-[1.45] text-ink">{feature.label}</p>
+      {feature.note && <p className="mt-1.5 text-[0.72rem] leading-[1.6] text-ink-faint">{feature.note}</p>}
+    </li>
+  );
+}
 
 export function Pricing() {
   const { setSelectedPlan } = usePlanContext();
+  // sm以上では左右列を独立したフローにし、noteで高さが増える項目が
+  // 隣の列の行間隔に影響しないようにする(交互に振り分けて元の見た目の対応を維持)。
+  const leftFeatures = campaignOffer.features.filter((_, i) => i % 2 === 0);
+  const rightFeatures = campaignOffer.features.filter((_, i) => i % 2 === 1);
 
   return (
     <section
@@ -37,22 +52,31 @@ export function Pricing() {
               <span className="text-[0.95rem] font-semibold text-ink-soft">{campaignOffer.priceUnit}</span>
             </p>
 
-            <ul className="mx-auto mb-8 grid max-w-[520px] gap-x-5 gap-y-6 text-left sm:grid-cols-2">
-              {campaignOffer.features.map((feature) => (
-                <li key={feature.label} className="relative pl-7">
-                  <span className="absolute left-0 top-[3px] h-4 w-4 rounded-full bg-accent/15" />
-                  <span className="absolute left-1 top-[10px] h-1 w-2 -rotate-45 border-b-2 border-l-2 border-accent" />
-                  <p className="text-[0.92rem] font-medium leading-[1.45] text-ink">{feature.label}</p>
-                  {feature.note && (
-                    <p className="mt-1.5 text-[0.72rem] leading-[1.6] text-ink-faint">{feature.note}</p>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <div className="mx-auto mb-8 max-w-[520px] text-left">
+              {/* モバイル: 単一カラムで元の並び順のまま */}
+              <ul className="flex flex-col gap-5 sm:hidden">
+                {campaignOffer.features.map((feature) => (
+                  <FeatureItem key={feature.label} feature={feature} />
+                ))}
+              </ul>
+              {/* sm以上: 左右列を独立したフローにして間隔を均一に保つ */}
+              <div className="hidden gap-x-5 sm:grid sm:grid-cols-2">
+                <ul className="flex flex-col gap-5">
+                  {leftFeatures.map((feature) => (
+                    <FeatureItem key={feature.label} feature={feature} />
+                  ))}
+                </ul>
+                <ul className="flex flex-col gap-5">
+                  {rightFeatures.map((feature) => (
+                    <FeatureItem key={feature.label} feature={feature} />
+                  ))}
+                </ul>
+              </div>
+            </div>
 
             <div className="mb-8 rounded-[20px] bg-surface px-6 py-6 text-left sm:px-7">
               <div className="mb-3 flex flex-col gap-2.5 sm:flex-row sm:items-baseline sm:gap-2">
-                <p className="text-[0.9rem] font-semibold text-ink">{campaignOffer.monthlyLabel}</p>
+                <p className="text-[0.9rem] font-semibold text-accent">{campaignOffer.monthlyLabel}</p>
                 <p className="whitespace-nowrap text-[1.2rem] font-extrabold text-ink">
                   {campaignOffer.monthlyPriceNum}
                   {campaignOffer.monthlyPriceUnit}
