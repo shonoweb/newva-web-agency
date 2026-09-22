@@ -3,13 +3,26 @@
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { cn } from "@/lib/cn";
-import { campaignOffer } from "@/data/campaign";
-import { pricingPlans } from "@/data/pricing";
+import { campaignOffer, type MainFeature } from "@/data/campaign";
 import { usePlanContext } from "@/components/PlanContext";
+
+function FeatureItem({ feature }: { feature: MainFeature }) {
+  return (
+    <li className="relative pl-7">
+      <span className="absolute left-0 top-[3px] h-4 w-4 rounded-full bg-accent/15" />
+      <span className="absolute left-1 top-[10px] h-1 w-2 -rotate-45 border-b-2 border-l-2 border-accent" />
+      <p className="text-[0.92rem] font-medium leading-[1.45] text-ink">{feature.label}</p>
+      {feature.note && <p className="mt-1.5 text-[0.72rem] leading-[1.6] text-ink-faint">{feature.note}</p>}
+    </li>
+  );
+}
 
 export function Pricing() {
   const { setSelectedPlan } = usePlanContext();
+  // sm以上では左右列を独立したフローにし、noteで高さが増える項目が
+  // 隣の列の行間隔に影響しないようにする(交互に振り分けて元の見た目の対応を維持)。
+  const leftFeatures = campaignOffer.features.filter((_, i) => i % 2 === 0);
+  const rightFeatures = campaignOffer.features.filter((_, i) => i % 2 === 1);
 
   return (
     <section
@@ -22,142 +35,85 @@ export function Pricing() {
           title="料金プラン"
           description={
             <>
-              お店に合わせて選べる、シンプルな料金プラン。
+              {campaignOffer.catchphrase}
               <br />
-              ご要望やサイトの規模に合わせて、
-              <br className="sm:hidden" />
-              最適なプランをご提案します。
+              シンプルで分かりやすい、1つの料金プランです。
             </>
           }
         />
 
-        {/* ① 実績制作キャンペーン（最も目立つオファー） */}
         <Reveal>
-          <div className="mx-auto max-w-[560px] rounded-[28px] border border-line bg-white px-7 py-9 text-center shadow-[var(--shadow-sm)] sm:px-10 sm:py-11">
-            <span className="mb-4 inline-block rounded-full bg-dark px-[18px] py-1.5 text-[0.75rem] font-bold tracking-[0.04em] text-white">
-              {campaignOffer.badge}
-            </span>
-
-            <p className="mb-3 text-[1.3rem] font-extrabold text-ink">{campaignOffer.title}</p>
-            <p className="mx-auto mb-8 max-w-[380px] text-[0.88rem] leading-[1.9] text-ink-soft">
-              <span className="break-keep break-words">
-                プロプラン相当のホームページ制作を、
-                <br className="sm:hidden" />
-                制作実績への掲載にご協力いただける
-                <br className="sm:hidden" />
-                店舗様限定で
-                <br className="sm:hidden" />
-                <span className="whitespace-nowrap">特別価格にてご提供します。</span>
-              </span>
-            </p>
-
-            <p className="mb-2 text-[0.82rem] text-ink-faint">
-              {campaignOffer.regularPriceLabel} <span className="line-through">{campaignOffer.regularPrice}</span>
-            </p>
-            <p className="mb-1.5 text-[0.85rem] font-semibold text-accent">{campaignOffer.campaignPriceLabel}</p>
+          <div className="mx-auto max-w-[640px] rounded-[28px] border border-line bg-white px-7 py-9 text-center shadow-[var(--shadow-sm)] sm:px-12 sm:py-12">
+            <p className="mb-2 text-[0.85rem] font-bold tracking-[0.1em] text-accent">{campaignOffer.priceLabel}</p>
             <p className="mb-8 flex items-baseline justify-center gap-1.5">
-              <span className="text-[clamp(2.75rem,7vw,3.75rem)] font-extrabold leading-none tracking-[-0.02em] text-ink">
-                {campaignOffer.campaignPriceNum}
+              <span className="text-[clamp(2.9rem,7.5vw,4rem)] font-extrabold leading-none tracking-[-0.02em] text-ink">
+                {campaignOffer.priceNum}
               </span>
-              <span className="text-[0.95rem] font-semibold text-ink-soft">{campaignOffer.campaignPriceUnit}</span>
+              <span className="text-[0.95rem] font-semibold text-ink-soft">{campaignOffer.priceUnit}</span>
             </p>
 
-            <div className="mb-8 rounded-[20px] bg-surface px-6 py-5">
-              <p className="mb-2.5 text-[0.9rem] font-semibold text-ink">
-                {campaignOffer.monthlyLabel}{" "}
-                <strong className="text-[1.15rem] font-extrabold">{campaignOffer.monthlyPrice}</strong>
-              </p>
-              <ul className="flex flex-wrap justify-center gap-x-3.5 gap-y-1.5">
-                {campaignOffer.monthlyItems.map((item) => (
-                  <li key={item} className="text-[0.8rem] text-ink-soft before:content-['・']">
+            <div className="mx-auto mb-8 max-w-[520px] text-left">
+              {/* モバイル: 単一カラムで元の並び順のまま */}
+              <ul className="flex flex-col gap-5 sm:hidden">
+                {campaignOffer.features.map((feature) => (
+                  <FeatureItem key={feature.label} feature={feature} />
+                ))}
+              </ul>
+              {/* sm以上: 左右列を独立したフローにして間隔を均一に保つ */}
+              <div className="hidden gap-x-5 sm:grid sm:grid-cols-2">
+                <ul className="flex flex-col gap-5">
+                  {leftFeatures.map((feature) => (
+                    <FeatureItem key={feature.label} feature={feature} />
+                  ))}
+                </ul>
+                <ul className="flex flex-col gap-5">
+                  {rightFeatures.map((feature) => (
+                    <FeatureItem key={feature.label} feature={feature} />
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mb-8 rounded-[20px] bg-surface px-6 py-6 text-left sm:px-7">
+              <div className="mb-3 flex flex-col gap-2.5 sm:flex-row sm:items-baseline sm:gap-2">
+                <p className="text-[0.9rem] font-semibold text-accent">{campaignOffer.monthlyLabel}</p>
+                <p className="whitespace-nowrap text-[1.2rem] font-extrabold text-ink">
+                  {campaignOffer.monthlyPriceNum}
+                  {campaignOffer.monthlyPriceUnit}
+                </p>
+              </div>
+              <ul className="mb-5 flex flex-col gap-2">
+                {campaignOffer.monthlyFeatures.map((item) => (
+                  <li key={item} className="text-[0.85rem] text-ink-soft before:mr-1.5 before:content-['・']">
                     {item}
                   </li>
                 ))}
               </ul>
+
+              <div className="grid gap-4 border-t border-line pt-5 sm:grid-cols-2">
+                <div>
+                  <p className="mb-1.5 text-[0.75rem] font-bold tracking-[0.04em] text-ink-faint">
+                    {campaignOffer.regularEditLabel}
+                  </p>
+                  <p className="text-[0.8rem] leading-[1.7] text-ink-soft">
+                    {campaignOffer.regularEditExamples.join(" / ")}
+                  </p>
+                </div>
+                <div>
+                  <p className="mb-1.5 text-[0.75rem] font-bold tracking-[0.04em] text-ink-faint">
+                    {campaignOffer.majorEditLabel}
+                  </p>
+                  <p className="text-[0.8rem] leading-[1.7] text-ink-soft">
+                    {campaignOffer.majorEditExamples.join(" / ")}
+                  </p>
+                </div>
+              </div>
             </div>
 
             <Button href="#contact" size="lg" block onClick={() => setSelectedPlan(campaignOffer.planValue)}>
               {campaignOffer.ctaLabel}
             </Button>
           </div>
-        </Reveal>
-
-        {/* ② 通常料金プラン(以前のベーシック/プロプランを復元) */}
-        <Reveal delay={0.15}>
-          <p className="mx-auto mb-8 mt-2 max-w-[900px] text-center text-[0.8rem] font-bold tracking-[0.1em] text-ink-soft sm:mt-4">
-            通常料金と比較する
-          </p>
-        </Reveal>
-
-        <div className="mx-auto grid max-w-[900px] gap-7 sm:grid-cols-2">
-          {pricingPlans.map((plan, index) => (
-            <Reveal key={plan.id} delay={0.2 + index * 0.1}>
-              <article
-                className={cn(
-                  "relative flex h-full flex-col rounded-[28px] border bg-white px-7 py-10 shadow-[var(--shadow-sm)] sm:px-8",
-                  plan.featured ? "border-2 border-dark shadow-[var(--shadow-md)]" : "border-line"
-                )}
-              >
-                {plan.badge && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-dark px-5 py-1.5 text-[0.75rem] font-bold tracking-[0.04em] text-white">
-                    {plan.badge}
-                  </span>
-                )}
-
-                <div className="mb-6 border-b border-line pb-6 text-center">
-                  <p className="mb-2 text-[1.2rem] font-extrabold text-ink">{plan.name}</p>
-                  <p className="mb-4 text-[0.85rem] text-ink-soft">{plan.for}</p>
-                  <p className="flex items-baseline justify-center gap-1">
-                    <span className="text-[clamp(2rem,3.6vw,2.5rem)] font-extrabold tracking-[-0.01em] text-ink">
-                      {plan.priceNum}
-                    </span>
-                    <span className="text-[0.9rem] font-semibold text-ink-soft">{plan.priceUnit}</span>
-                  </p>
-                </div>
-
-                <ul className="mb-6 flex flex-col gap-3">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="relative pl-[26px] text-[0.92rem] font-medium text-ink">
-                      <span className="absolute left-0 top-[5px] h-4 w-4 rounded-full bg-accent/15" />
-                      <span className="absolute left-1 top-2 h-1 w-2 -rotate-45 border-b-2 border-l-2 border-accent" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mb-7 rounded-[20px] bg-surface px-[22px] py-5">
-                  <p className="mb-2.5 text-[0.9rem] font-semibold text-ink">
-                    月額 <strong className="text-[1.1rem] font-extrabold">{plan.monthlyPrice}</strong>
-                  </p>
-                  <ul className="flex flex-wrap gap-x-3.5 gap-y-1.5">
-                    {plan.monthlyItems.map((item) => (
-                      <li key={item} className="text-[0.8rem] text-ink-soft before:content-['・']">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <Button
-                  href="#contact"
-                  variant={plan.featured ? "dark" : "ghost"}
-                  block
-                  className="mt-auto"
-                  onClick={() => setSelectedPlan(plan.planValue)}
-                >
-                  {plan.ctaLabel}
-                </Button>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={0.4}>
-          <p className="mx-auto mt-12 max-w-[620px] text-center text-[0.85rem] leading-[1.8] text-ink-soft">
-            {campaignOffer.supportNote}
-            <br />
-            <span className="text-[0.78rem] text-ink-faint">{campaignOffer.priceNote}</span>
-          </p>
         </Reveal>
       </div>
     </section>

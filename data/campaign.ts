@@ -1,43 +1,71 @@
-export interface CampaignOffer {
-  badge: string;
-  title: string;
-  description: string;
-  regularPriceLabel: string;
-  regularPrice: string;
-  campaignPriceLabel: string;
-  campaignPriceNum: string;
-  campaignPriceUnit: string;
+export interface MainFeature {
+  label: string;
+  /** その項目の直下に小さく表示する補足（「ページ数制限なし」の適用範囲注記など） */
+  note?: string;
+}
+
+export interface MainOffer {
+  /** 制作費カードのラベル */
+  priceLabel: string;
+  /** キャッチコピー */
+  catchphrase: string;
+  priceNum: string;
+  priceUnit: string;
+  /** 制作費に含まれる内容 */
+  features: MainFeature[];
+  /** 月額保守・運用費 */
   monthlyLabel: string;
-  monthlyPrice: string;
-  monthlyItems: string[];
+  monthlyPriceNum: string;
+  monthlyPriceUnit: string;
+  /** 月額に含まれる内容 */
+  monthlyFeatures: string[];
+  regularEditLabel: string;
+  regularEditExamples: string[];
+  majorEditLabel: string;
+  majorEditExamples: string[];
   ctaLabel: string;
   /** Contactフォームの「ご希望のプラン」選択肢と一致させる値 */
   planValue: string;
-  supportNote: string;
-  priceNote: string;
 }
 
 /**
- * 現時点では料金は仮設定。金額・条件を変更する場合はこのファイルのみ編集すればよい。
- * 通常プラン（data/pricing.ts, 2プラン構成）は削除していないため、
- * 将来キャンペーンを終了する場合は components/sections/Pricing.tsx の表示を
- * 元のプラン一覧に戻すだけで復元できる。
+ * 2026年10月1日からの正式料金体系（1プラン）。
+ * 金額・条件を変更する場合はこのファイルのみ編集すればよい。
  */
-export const campaignOffer: CampaignOffer = {
-  badge: "先着10店舗限定",
-  title: "実績制作キャンペーン",
-  description:
-    "プロプラン相当のホームページ制作を、制作実績への掲載にご協力いただける店舗様限定で特別価格にてご提供します。",
-  regularPriceLabel: "通常制作費",
-  regularPrice: "99,800円〜",
-  campaignPriceLabel: "キャンペーン制作費",
-  campaignPriceNum: "29,000",
-  campaignPriceUnit: "円（税込）",
-  monthlyLabel: "月額",
-  monthlyPrice: "5,000円（税込）",
-  monthlyItems: ["サーバー管理", "サイト維持管理", "基本サポート"],
-  ctaLabel: "キャンペーン価格で相談する",
-  planValue: "実績制作キャンペーンについて相談",
-  supportNote: "制作後も、お店のWeb担当として継続的にサポートします。",
-  priceNote: "※料金は税込です。内容・ページ数により変動する場合があります。",
+export const campaignOffer: MainOffer = {
+  priceLabel: "制作費",
+  catchphrase: "飲食店のホームページ制作に必要なものを、わかりやすい料金で。",
+  priceNum: "49,800",
+  priceUnit: "円（税込）",
+  features: [
+    {
+      label: "ページ数制限なし",
+      note: "※一般的な飲食店ホームページの構成範囲内。特殊機能・大規模サイトは別途お見積りとなります。",
+    },
+    { label: "スマホ対応（レスポンシブデザイン）" },
+    { label: "オリジナルデザイン" },
+    { label: "SEO対策" },
+    { label: "GA4の導入・設定" },
+    { label: "Google Search Consoleの設定" },
+    { label: "独自ドメイン接続" },
+    { label: "お問い合わせ・予約導線の設置" },
+    { label: "公開までのサポート" },
+  ],
+  monthlyLabel: "月額保守・運用費",
+  monthlyPriceNum: "5,000",
+  monthlyPriceUnit: "円（税込）/ 月",
+  monthlyFeatures: [
+    "通常修正：月5回まで",
+    "大規模修正：月1回まで",
+    "サーバー・ドメイン管理サポート",
+    "軽微なSEOサポート",
+    "不具合対応",
+    "運用に関する相談サポート",
+  ],
+  regularEditLabel: "通常修正の例",
+  regularEditExamples: ["テキスト変更", "写真差し替え", "営業時間変更", "メニュー・料金変更など"],
+  majorEditLabel: "大規模修正の例",
+  majorEditExamples: ["新しいページの追加", "セクションの大幅な変更", "レイアウトの大幅変更", "サイト構成の変更"],
+  ctaLabel: "無料相談する",
+  planValue: "ホームページ制作について相談",
 };
