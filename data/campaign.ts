@@ -1,3 +1,9 @@
+export interface MainFeature {
+  label: string;
+  /** その項目の直下に小さく表示する補足（「ページ数制限なし」の適用範囲注記など） */
+  note?: string;
+}
+
 export interface MainOffer {
   /** 制作費カードのラベル */
   priceLabel: string;
@@ -6,9 +12,7 @@ export interface MainOffer {
   priceNum: string;
   priceUnit: string;
   /** 制作費に含まれる内容 */
-  features: string[];
-  /** 制作費の注意書き（小さく表示） */
-  priceNote: string;
+  features: MainFeature[];
   /** 月額保守・運用費 */
   monthlyLabel: string;
   monthlyPriceNum: string;
@@ -34,17 +38,19 @@ export const campaignOffer: MainOffer = {
   priceNum: "49,800",
   priceUnit: "円（税込）",
   features: [
-    "ページ数制限なし",
-    "スマホ対応（レスポンシブデザイン）",
-    "オリジナルデザイン",
-    "SEO対策",
-    "GA4の導入・設定",
-    "Google Search Consoleの設定",
-    "独自ドメイン接続",
-    "お問い合わせ・予約導線の設置",
-    "公開までのサポート",
+    {
+      label: "ページ数制限なし",
+      note: "※一般的な飲食店ホームページの構成範囲内。特殊機能・大規模サイトは別途お見積りとなります。",
+    },
+    { label: "スマホ対応（レスポンシブデザイン）" },
+    { label: "オリジナルデザイン" },
+    { label: "SEO対策" },
+    { label: "GA4の導入・設定" },
+    { label: "Google Search Consoleの設定" },
+    { label: "独自ドメイン接続" },
+    { label: "お問い合わせ・予約導線の設置" },
+    { label: "公開までのサポート" },
   ],
-  priceNote: "※一般的な飲食店ホームページの構成範囲内。特殊機能・大規模サイトは別途お見積りとなります。",
   monthlyLabel: "月額保守・運用費",
   monthlyPriceNum: "5,000",
   monthlyPriceUnit: "円（税込）/ 月",

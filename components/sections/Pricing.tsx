@@ -37,17 +37,18 @@ export function Pricing() {
               <span className="text-[0.95rem] font-semibold text-ink-soft">{campaignOffer.priceUnit}</span>
             </p>
 
-            <ul className="mx-auto mb-4 grid max-w-[460px] gap-x-6 gap-y-3 text-left sm:grid-cols-2">
+            <ul className="mx-auto mb-8 grid max-w-[520px] gap-x-5 gap-y-6 text-left sm:grid-cols-2">
               {campaignOffer.features.map((feature) => (
-                <li key={feature} className="relative pl-[26px] text-[0.92rem] font-medium text-ink">
-                  <span className="absolute left-0 top-[5px] h-4 w-4 rounded-full bg-accent/15" />
-                  <span className="absolute left-1 top-2 h-1 w-2 -rotate-45 border-b-2 border-l-2 border-accent" />
-                  {feature}
+                <li key={feature.label} className="relative pl-7">
+                  <span className="absolute left-0 top-[3px] h-4 w-4 rounded-full bg-accent/15" />
+                  <span className="absolute left-1 top-[10px] h-1 w-2 -rotate-45 border-b-2 border-l-2 border-accent" />
+                  <p className="text-[0.92rem] font-medium leading-[1.45] text-ink">{feature.label}</p>
+                  {feature.note && (
+                    <p className="mt-1.5 text-[0.72rem] leading-[1.6] text-ink-faint">{feature.note}</p>
+                  )}
                 </li>
               ))}
             </ul>
-
-            <p className="mb-8 text-[0.76rem] leading-[1.7] text-ink-faint">{campaignOffer.priceNote}</p>
 
             <div className="mb-8 rounded-[20px] bg-surface px-6 py-6 text-left sm:px-7">
               <p className="mb-3 text-[0.9rem] font-semibold text-ink">
