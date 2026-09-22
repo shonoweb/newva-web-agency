@@ -18,7 +18,7 @@ export const siteConfig = {
    * 本番ドメイン: https://newvaagency.com（www.は308でこちらにリダイレクト、Vercel側で設定済み）
    */
   url: "https://newvaagency.com",
-  email: "info@example.com",
+  email: "info@newvaagency.com",
   phone: "000-0000-0000",
   hours: "毎日 10:00〜24:00",
   hoursNote: "土日祝も対応",

@@ -27,7 +27,7 @@ interface FormErrors {
 const inputClass =
   "w-full min-h-11 rounded-[14px] border border-line bg-white px-4 py-3.5 text-[0.95rem] text-ink transition-[border-color,box-shadow] duration-300 focus:border-accent focus:shadow-[0_0_0_3px_rgba(136,120,255,0.14)] focus:outline-none";
 
-const GENERIC_ERROR_MESSAGE = "送信できませんでした。時間をおいて再度お試しください。";
+const GENERIC_ERROR_MESSAGE = `送信に失敗しました。時間をおいて再度お試しいただくか、${siteConfig.email} まで直接お問い合わせください。`;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
