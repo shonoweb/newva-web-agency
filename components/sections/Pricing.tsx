@@ -51,13 +51,13 @@ export function Pricing() {
             </ul>
 
             <div className="mb-8 rounded-[20px] bg-surface px-6 py-6 text-left sm:px-7">
-              <p className="mb-3 text-[0.9rem] font-semibold text-ink">
-                {campaignOffer.monthlyLabel}{" "}
-                <strong className="text-[1.15rem] font-extrabold">
+              <div className="mb-3 flex flex-col gap-2.5 sm:flex-row sm:items-baseline sm:gap-2">
+                <p className="text-[0.9rem] font-semibold text-ink">{campaignOffer.monthlyLabel}</p>
+                <p className="whitespace-nowrap text-[1.2rem] font-extrabold text-ink">
                   {campaignOffer.monthlyPriceNum}
                   {campaignOffer.monthlyPriceUnit}
-                </strong>
-              </p>
+                </p>
+              </div>
               <ul className="mb-5 flex flex-col gap-2">
                 {campaignOffer.monthlyFeatures.map((item) => (
                   <li key={item} className="text-[0.85rem] text-ink-soft before:mr-1.5 before:content-['・']">
