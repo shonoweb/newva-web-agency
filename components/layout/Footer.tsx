@@ -31,14 +31,14 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="NEWVA WEB AGENCY LINE公式アカウント"
-            className="inline-flex items-center justify-center p-1.5 opacity-100 transition-opacity hover:opacity-75 nav:p-3"
+            className="-ml-4 inline-flex items-center justify-center p-2.5 opacity-100 transition-opacity hover:opacity-75"
           >
             <Image
               src="/images/line/line-brand-icon.png"
               alt=""
               width={1000}
               height={1000}
-              className="h-10 w-10 nav:h-5 nav:w-5"
+              className="h-6 w-6"
             />
           </a>
         </nav>
