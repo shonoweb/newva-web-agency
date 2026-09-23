@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { HashLink } from "@/components/ui/HashLink";
-import { LineIcon } from "@/components/icons/UtilityIcons";
 import { footerNavLinks, siteConfig } from "@/lib/site";
 
 export function Footer() {
@@ -30,10 +30,16 @@ export function Footer() {
             href="https://lin.ee/NP5sWDz"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="NEWVA WEB AGENCY 公式LINE"
-            className="-m-3 inline-flex h-11 w-11 items-center justify-center p-3 text-[#06C755] opacity-100 transition-opacity hover:opacity-75"
+            aria-label="NEWVA WEB AGENCY LINE公式アカウント"
+            className="inline-flex items-center justify-center p-1.5 opacity-100 transition-opacity hover:opacity-75 nav:p-3"
           >
-            <LineIcon className="h-5 w-5" />
+            <Image
+              src="/images/line/line-brand-icon.png"
+              alt=""
+              width={1000}
+              height={1000}
+              className="h-10 w-10 nav:h-5 nav:w-5"
+            />
           </a>
         </nav>
       </div>
