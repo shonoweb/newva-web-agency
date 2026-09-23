@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HashLink } from "@/components/ui/HashLink";
+import { LineIcon } from "@/components/icons/UtilityIcons";
 import { footerNavLinks, siteConfig } from "@/lib/site";
 
 export function Footer() {
@@ -15,7 +16,7 @@ export function Footer() {
           <p className="mt-2 text-[0.9rem] text-ink-soft">{siteConfig.tagline}</p>
         </div>
 
-        <nav aria-label="フッターナビゲーション" className="flex flex-wrap gap-x-6 gap-y-2">
+        <nav aria-label="フッターナビゲーション" className="flex flex-wrap items-center gap-x-6 gap-y-2">
           {footerNavLinks.map((link) => (
             <HashLink
               key={link.href}
@@ -25,6 +26,15 @@ export function Footer() {
               {link.label}
             </HashLink>
           ))}
+          <a
+            href="https://lin.ee/NP5sWDz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="NEWVA WEB AGENCY 公式LINE"
+            className="-m-3 inline-flex h-11 w-11 items-center justify-center p-3 text-[#06C755] opacity-100 transition-opacity hover:opacity-75"
+          >
+            <LineIcon className="h-5 w-5" />
+          </a>
         </nav>
       </div>
 

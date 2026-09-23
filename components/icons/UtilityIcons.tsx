@@ -46,6 +46,16 @@ export function InstagramIcon({ className }: IconProps) {
   );
 }
 
+export function LineIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="6" fill="currentColor" />
+      <rect x="5.5" y="6.5" width="13" height="8" rx="4" fill="#fff" />
+      <path d="M8.3 14.2 6.7 17.4 9.8 14.7Z" fill="#fff" />
+    </svg>
+  );
+}
+
 export function XIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className={className} aria-hidden="true">
