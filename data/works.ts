@@ -52,10 +52,12 @@ export const works: Work[] = [
   },
   {
     id: "restaurant",
-    title: "レストランサイト",
-    category: "レストラン",
-    description: "上質な世界観と写真を活かした、記憶に残るデザイン。",
-    image: "/images/works/portfolio-restaurant-1.svg",
-    isPlaceholder: true,
+    title: "KAGARI",
+    category: "RESTAURANT",
+    description: "上質な世界観と写真を活かした、記憶に残るレストランサイト。",
+    image: "/images/work-kagari.webp",
+    placeholderImage: "/images/works/portfolio-restaurant-1.svg",
+    url: "https://kagari.newvaagency.com",
+    isPlaceholder: false,
   },
 ];
